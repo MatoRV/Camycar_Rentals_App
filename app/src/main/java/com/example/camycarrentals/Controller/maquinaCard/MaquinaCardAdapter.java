@@ -24,7 +24,7 @@ public class MaquinaCardAdapter extends RecyclerView.Adapter<MaquinaCardViewHold
     @NonNull
     @Override
     public MaquinaCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.prueba_maquinas, parent, false);
+        View mItemView = mInflater.inflate(R.layout.lista_maquinas, parent, false);
         return new MaquinaCardViewHolder(mItemView, this);
     }
 

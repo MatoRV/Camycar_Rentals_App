@@ -37,9 +37,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-
-        mRecyclerView = findViewById(R.id.rvMaquinas);
+        setContentView(R.layout.activity_main);        mRecyclerView = findViewById(R.id.rvMaquinas);
         mAdapter = new MaquinaCardAdapter(this, mMaquinaList);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -52,15 +50,16 @@ public class MainActivity extends AppCompatActivity {
             mMaquinaList.addAll(maquinas);
             mAdapter.notifyDataSetChanged();
         });
+        mViewModel.loadMaquina();
 
-        Button generar = (Button) findViewById(R.id.btMaquinas);
-        generar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Obteniendo info de las maquinas",Toast.LENGTH_LONG).show();
-                mViewModel.loadMaquina();
-            }
-        });
+//        Button generar = (Button) findViewById(R.id.btMaquinas);
+//        generar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(MainActivity.this, "Obteniendo info de las maquinas",Toast.LENGTH_LONG).show();
+//                mViewModel.loadMaquina();
+//            }
+//        });
 
         MainActivity.myActiveActivity = this;
         MainController.setActivity(this);
