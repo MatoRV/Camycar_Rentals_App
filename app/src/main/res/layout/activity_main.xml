@@ -6,29 +6,37 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    tools:context=".View.MainActivity">
+    <LinearLayout
+        android:id="@+id/llmain"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/lavender"
+        android:paddingTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvMaquinas"
+        android:layout_height="wrap_content">
+        <include layout="@layout/toolbar" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/frame"/>
+    </LinearLayout>
 
     <TextView
             android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:text="@string/maquinas"
             android:id="@+id/tvMaquinas"
             android:textSize="20sp"
-            app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btMaquinas"
+        app:layout_constraintTop_toBottomOf="@id/llmain"
             app:layout_constraintBottom_toTopOf="@+id/rvMaquinas"
             />
 
-    <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btMaquinas"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tvMaquinas"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="Maquinas"
-            app:layout_constraintBottom_toTopOf="@+id/rvMaquinas"
-    />
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMaquinas"
@@ -39,5 +47,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMaquinas"
     />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

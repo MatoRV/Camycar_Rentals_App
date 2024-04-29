@@ -16,8 +16,8 @@ public class MaquinaCardViewHolder extends RecyclerView.ViewHolder {
     public MaquinaCardViewHolder(View itemView, MaquinaCardAdapter adapter) {
         super(itemView);
 
-        tvModeloMaquina = itemView.findViewById(R.id.modeloMaquinaPrueba);
-        tvEstadoMaquina = itemView.findViewById(R.id.estadoMaquinaPrueba);
+        tvModeloMaquina = itemView.findViewById(R.id.modeloMaquina);
+        tvEstadoMaquina = itemView.findViewById(R.id.estadoMaquina);
         this.mAdapter = adapter;
     }
 

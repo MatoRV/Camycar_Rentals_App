@@ -3,13 +3,14 @@ package com.example.camycarrentals.Controller.peticionGET;
 import java.io.IOException;
 import android.os.Handler;
 import android.os.Looper;
+
 import com.example.camycarrentals.Controller.MainController;
+
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.jetbrains.annotations.NotNull;
 
 public class PeticionMaquinas {
 
@@ -29,7 +30,7 @@ public class PeticionMaquinas {
         Call llamada = cliente.newCall(peticion);
         llamada.enqueue(new Callback() {
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+            public void onFailure( Call call, IOException e) {
                 String respuesta = "[{\"capacidadCarga\":2500,\"estado\":\"DISPONIBLE\",\"fabricante\":\"F1\",\"idMaquina\":1,\"modelo\":\"M2\","
                         + "\"tipoMaquina\":\"Torito\"},{\"capacidadCarga\":1500,\"estado\":\"DISPONIBLE\",\"fabricante\":\"F1\",\"idMaquina\":2,"
                         + "\"modelo\":\"M3\",\"tipoMaquina\":\"Carretilla\"},{\"capacidadCarga\":1000,\"estado\":\"DISPONIBLE\",\"fabricante\":\"F2\","
@@ -45,7 +46,7 @@ public class PeticionMaquinas {
                 });
             }
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            public void onResponse(Call call,Response response) throws IOException {
                 String respuesta = response.body().string();
                 Handler manejador = new Handler(Looper.getMainLooper());
                 manejador.post(new Runnable() {

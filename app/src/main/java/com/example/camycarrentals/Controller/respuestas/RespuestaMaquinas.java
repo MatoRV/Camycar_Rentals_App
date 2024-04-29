@@ -1,5 +1,6 @@
 package com.example.camycarrentals.Controller.respuestas;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import com.example.camycarrentals.Model.Maquina;
@@ -20,9 +21,9 @@ public class RespuestaMaquinas {
         datos = entrada;
     }
 
-    public List<Maquina> getMaquinas() {
+    public ArrayList<Maquina> getMaquinas() {
 
-        LinkedList<Maquina> dataList = new LinkedList<>();
+        ArrayList<Maquina> dataList = new ArrayList<>();
 
         try {
             ObjectMapper om = new ObjectMapper();

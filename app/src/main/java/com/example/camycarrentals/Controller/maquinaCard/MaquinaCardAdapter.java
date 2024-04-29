@@ -1,6 +1,7 @@
 package com.example.camycarrentals.Controller.maquinaCard;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,11 @@ import com.example.camycarrentals.R;
 
 public class MaquinaCardAdapter extends RecyclerView.Adapter<MaquinaCardViewHolder> {
 
-    private final LinkedList<Maquina> mList;
+    private final ArrayList<Maquina> mList;
 
     private LayoutInflater mInflater;
 
-    public MaquinaCardAdapter(Context context, LinkedList<Maquina> list) {
+    public MaquinaCardAdapter(Context context, ArrayList<Maquina> list) {
         mInflater = LayoutInflater.from(context);
         this.mList = list;
     }
@@ -24,7 +25,7 @@ public class MaquinaCardAdapter extends RecyclerView.Adapter<MaquinaCardViewHold
     @NonNull
     @Override
     public MaquinaCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.prueba, parent, false);
+        View mItemView = mInflater.inflate(R.layout.lista_maquinas, parent, false);
         return new MaquinaCardViewHolder(mItemView, this);
     }
 

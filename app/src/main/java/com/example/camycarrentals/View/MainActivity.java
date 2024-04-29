@@ -1,14 +1,21 @@
 package com.example.camycarrentals.View;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -23,7 +30,9 @@ import com.example.camycarrentals.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinkedList<Maquina> mMaquinaList = new LinkedList<>();
+    private ArrayList<Maquina> mMaquinaList = new ArrayList<>();
+
+    Toolbar toolbar;
 
     private RecyclerView mRecyclerView;
 
@@ -37,13 +46,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);        mRecyclerView = findViewById(R.id.rvMaquinas);
+        setContentView(R.layout.activity_main);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        mRecyclerView = findViewById(R.id.rvMaquinas);
         mAdapter = new MaquinaCardAdapter(this, mMaquinaList);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+
+
         mViewModel = new ViewModelProvider(this).get(MaquinaCardViewModel.class);
-//        MainController.getSingleton().setupViewModel(mViewModel);
+        MainController.getSingleton().setupViewModel(mViewModel);
 
         mViewModel.getMaquinas().observe(this, maquinas -> {
             mMaquinaList.clear();
@@ -51,13 +67,14 @@ public class MainActivity extends AppCompatActivity {
             mAdapter.notifyDataSetChanged();
         });
         mViewModel.loadMaquina();
+        MainController.getSingleton().requestMaquinasFromHttp(mViewModel);
 
 //        Button generar = (Button) findViewById(R.id.btMaquinas);
 //        generar.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
 //                Toast.makeText(MainActivity.this, "Obteniendo info de las maquinas",Toast.LENGTH_LONG).show();
-//                mViewModel.loadMaquina();
+//                MainController.getSingleton().requestMaquinasFromHttp();
 //            }
 //        });
 
@@ -66,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //    public void accessData() {
-//        List<Maquina> lista = MainController.getSingleton().getMaquinasRequested();
-//
+//        List<Maquina> maquinas = MainController.getSingleton().getMaquinasRequested();
 //        mMaquinaList.clear();
-//        for (Maquina maquina : lista) {
+//        for (Maquina maquina : maquinas) {
 //            mMaquinaList.add(maquina);
 //        }
 //
 //        mAdapter.notifyDataSetChanged();
 //    }
+
 }
