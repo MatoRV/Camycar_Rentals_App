@@ -11,14 +11,21 @@ public class MaquinaCardViewHolder extends RecyclerView.ViewHolder {
 
     private TextView tvModeloMaquina;
 
+    private TextView tvEstadoMaquina;
+
     public MaquinaCardViewHolder(View itemView, MaquinaCardAdapter adapter) {
         super(itemView);
 
-        tvModeloMaquina = itemView.findViewById(R.id.modeloMaquina);
+        tvModeloMaquina = itemView.findViewById(R.id.modeloMaquinaPrueba);
+        tvEstadoMaquina = itemView.findViewById(R.id.estadoMaquinaPrueba);
         this.mAdapter = adapter;
     }
 
     public void setTvModeloMaquina(String data) {
         tvModeloMaquina.setText(data);
+    }
+
+    public void setTvEstadoMaquina(String data) {
+        tvEstadoMaquina.setText(data);
     }
 }

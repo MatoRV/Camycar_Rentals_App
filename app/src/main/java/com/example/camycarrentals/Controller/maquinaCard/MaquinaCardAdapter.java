@@ -24,13 +24,14 @@ public class MaquinaCardAdapter extends RecyclerView.Adapter<MaquinaCardViewHold
     @NonNull
     @Override
     public MaquinaCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.lista_maquinas, parent, false);
+        View mItemView = mInflater.inflate(R.layout.prueba, parent, false);
         return new MaquinaCardViewHolder(mItemView, this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MaquinaCardViewHolder holder, int position) {
         holder.setTvModeloMaquina(this.mList.get(position).getModelo().toUpperCase());
+        holder.setTvEstadoMaquina(this.mList.get(position).getEstado());
     }
 
     @Override
