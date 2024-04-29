@@ -33,6 +33,15 @@ android {
 
 dependencies {
 
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.9.1")
+
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.12.4")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
