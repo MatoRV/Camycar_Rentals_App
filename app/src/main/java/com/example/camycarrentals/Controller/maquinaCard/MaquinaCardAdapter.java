@@ -31,7 +31,7 @@ public class MaquinaCardAdapter extends RecyclerView.Adapter<MaquinaCardViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MaquinaCardViewHolder holder, int position) {
-        holder.setTvModeloMaquina(this.mList.get(position).getModelo().toUpperCase());
+        holder.setTvModeloMaquina(this.mList.get(position).getFabricante() + " " + this.mList.get(position).getModelo().toUpperCase());
         holder.setTvEstadoMaquina(this.mList.get(position).getEstado());
     }
 

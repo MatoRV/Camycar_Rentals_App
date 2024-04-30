@@ -48,7 +48,7 @@ public class MainController {
     public void setMaquinasFromHttp(String json) {
         RespuestaMaquinas r = new RespuestaMaquinas(json);
         maquinasRequested = r.getMaquinas();
-        maquinaCardViewModel.loadMaquina();
+        maquinaCardViewModel.setData(maquinasRequested);
     }
 
     public void setErrorFromHttp(String error) {

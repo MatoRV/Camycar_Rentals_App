@@ -67,8 +67,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:textStyle="bold"
-                        android:text="30.0$"
-                        android:layout_marginLeft="15dp"
+                        android:text="30.0€"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginBottom="15dp"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/lavender"/>
 
@@ -78,12 +79,15 @@
 
     </RelativeLayout>
 
-    <ImageView
-            android:layout_alignRight="@+id/r1"
+    <Button
+            android:layout_alignEnd="@+id/r1"
             android:layout_below="@+id/r1"
-            android:layout_marginTop="-23dp"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@android:drawable/ic_menu_delete" app:tint="@color/teal_700"/>
+            android:layout_marginTop="-70dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/alquilar"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            app:tint="@color/teal_700"/>
 
 </RelativeLayout>
