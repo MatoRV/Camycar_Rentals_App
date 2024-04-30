@@ -20,55 +20,55 @@
                                                                            app:layout_constraintStart_toStartOf="parent"
                                                                            app:layout_constraintTop_toTopOf="parent"/>
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:id="@+id/lblTitle"
-        android:text="filter title"
-        android:textAppearance="?textAppearanceTitleLarge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dragHandle"/>
+                  android:id="@+id/lblTitle"
+                  android:text="@string/filtros"
+                  android:textAppearance="?textAppearanceTitleLarge"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/dragHandle"/>
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:id="@+id/lblSortBy"
-        android:layout_marginTop="12dp"
-        android:text="sort by"
-        android:textAppearance="?textAppearanceLabelLarge"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblTitle"/>
+                  android:id="@+id/lblSortBy"
+                  android:layout_marginTop="12dp"
+                  android:text="@string/filtrar_por"
+                  android:textAppearance="?textAppearanceLabelLarge"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/lblTitle"/>
 
         <HorizontalScrollView android:layout_width="match_parent"
                               android:layout_height="wrap_content"
-        android:id="@+id/layoutSorts"
-        android:layout_marginHorizontal="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblSortBy">
+                              android:id="@+id/layoutSorts"
+                              android:layout_marginHorizontal="16dp"
+                              app:layout_constraintEnd_toEndOf="parent"
+                              app:layout_constraintStart_toStartOf="parent"
+                              app:layout_constraintTop_toBottomOf="@+id/lblSortBy">
 
             <com.google.android.material.chip.ChipGroup android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:id="@+id/cg_sort_types"
-            app:selectionRequired="false"
-            app:singleSelection="true">
+                                                        android:id="@+id/cg_sort_types"
+                                                        app:selectionRequired="false"
+                                                        app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:id="@+id/chipAlphabeticalSort"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:text="orden alfabetico"
-                android:checked="true"/>
+                                                       android:id="@+id/chipAlphabeticalSort"
+                                                       style="@style/Widget.Material3.Chip.Filter"
+                                                       android:text="@string/orden_alfabetico"
+                                                       tools:checked="true"/>
 
                 <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:id="@+id/populationSort"
-                style="@style/Widget.Material3.Chip.Filter"
-                android:text="sort population"/>
+                                                       android:id="@+id/populationSort"
+                                                       style="@style/Widget.Material3.Chip.Filter"
+                                                       android:text="sort population"/>
 
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
 
         <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/sortDivider"
-        android:layout_marginTop="8dp"
+                                                             android:id="@+id/sortDivider"
+                                                             android:layout_marginTop="8dp"
                                                              app:layout_constraintStart_toStartOf="parent"
                                                              app:layout_constraintTop_toBottomOf="@+id/layoutSorts"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                                                             app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                   android:id="@+id/lblFabricante"
@@ -76,45 +76,45 @@
                   android:textAppearance="?textAppearanceLabelLarge"
                   app:layout_constraintStart_toStartOf="parent"
                   app:layout_constraintTop_toBottomOf="@+id/sortDivider"
-        android:layout_marginTop="24dp"/>
+                  android:layout_marginTop="24dp"/>
 
         <com.google.android.material.chip.ChipGroup android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/cgFabricante"
+                                                    android:id="@+id/cgFabricante"
                                                     app:chipSpacingVertical="0dp"
                                                     app:layout_constraintEnd_toEndOf="parent"
                                                     app:layout_constraintStart_toStartOf="parent"
                                                     app:layout_constraintTop_toBottomOf="@+id/lblFabricante"
                                                     app:selectionRequired="false"
                                                     app:singleSelection="false"
-        android:layout_marginHorizontal="16dp">
+                                                    android:layout_marginHorizontal="16dp">
 
             <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
                                                    android:text="F1"
-            style="@style/Widget.Material3.Chip.Filter"/>
+                                                   style="@style/Widget.Material3.Chip.Filter"/>
 
             <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="F2"
-            style="@style/Widget.Material3.Chip.Filter"/>
+                                                   android:text="F2"
+                                                   style="@style/Widget.Material3.Chip.Filter"/>
 
 
         </com.google.android.material.chip.ChipGroup>
 
         <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/dividerFilter"
-        android:layout_marginTop="8dp"
+                                                             android:id="@+id/dividerFilter"
+                                                             android:layout_marginTop="8dp"
                                                              app:layout_constraintStart_toStartOf="parent"
                                                              app:layout_constraintTop_toBottomOf="@+id/cgFabricante"
-        app:layout_constraintEnd_toEndOf="parent"/>
+                                                             app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.button.MaterialButton android:layout_width="0dp" android:layout_height="wrap_content"
                                                            style="@style/Widget.Material3.Button"
                                                            android:layout_marginTop="16dp"
                                                            android:layout_marginStart="8dp"
-                                                           android:text="Apply"
+                                                           android:text="@string/aplicar"
                                                            app:layout_constraintEnd_toEndOf="parent"
                                                            app:layout_constraintStart_toEndOf="@+id/frameLayout"
                                                            app:layout_constraintTop_toBottomOf="@+id/dividerFilter"
-        android:id="@+id/btnApply"/>
+                                                           android:id="@+id/btnApply"/>
 
         <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content"
                      android:layout_marginEnd="8dp"
@@ -123,12 +123,12 @@
                      app:layout_constraintEnd_toStartOf="@+id/btnApply"
                      app:layout_constraintStart_toStartOf="parent"
                      app:layout_constraintTop_toTopOf="@+id/btnApply"
-        android:id="@+id/frameLayout">
+                     android:id="@+id/frameLayout">
 
             <com.google.android.material.button.MaterialButton android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:id="@+id/btnResetAll"
-                                                               android:text="Reset All"
-            style="?attr/materialButtonOutlinedStyle"/>
+                                                               android:id="@+id/btnResetAll"
+                                                               android:text="@string/quitar_filtros"
+                                                               style="?attr/materialButtonOutlinedStyle"/>
 
         </FrameLayout>
 

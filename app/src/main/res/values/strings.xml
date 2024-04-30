@@ -3,4 +3,9 @@
     <string name="maquinas">Maquinas</string>
     <string name="alquilar">Alquilar</string>
     <string name="fabricante">Fabricante</string>
+    <string name="quitar_filtros">Quitar filtros</string>
+    <string name="aplicar">Aplicar</string>
+    <string name="orden_alfabetico">Orden alfabetico</string>
+    <string name="filtrar_por">Filtrar por:</string>
+    <string name="filtros">Filtros</string>
 </resources>

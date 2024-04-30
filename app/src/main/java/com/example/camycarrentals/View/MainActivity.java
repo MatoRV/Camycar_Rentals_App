@@ -1,25 +1,12 @@
 package com.example.camycarrentals.View;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,7 +14,7 @@ import com.example.camycarrentals.Controller.MainController;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardAdapter;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Model.Maquina;
-import com.example.camycarrentals.Model.SortDialogFragment;
+import com.example.camycarrentals.Model.SortBottomDialogFragment;
 import com.example.camycarrentals.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -77,9 +64,8 @@ public class MainActivity extends AppCompatActivity {
         sortButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SortDialogFragment dialogFragment = new SortDialogFragment();
-                dialogFragment.show(getSupportFragmentManager(),null);
-
+                SortBottomDialogFragment sortBottomDialogFragment = SortBottomDialogFragment.newInstance();
+                sortBottomDialogFragment.show(getSupportFragmentManager(), null);
             }
         });
 
