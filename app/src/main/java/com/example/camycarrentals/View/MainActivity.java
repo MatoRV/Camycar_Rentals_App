@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,6 +27,7 @@ import com.example.camycarrentals.Controller.MainController;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardAdapter;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Model.Maquina;
+import com.example.camycarrentals.Model.SortDialogFragment;
 import com.example.camycarrentals.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private MaquinaCardAdapter mAdapter;
 
     private MaquinaCardViewModel mViewModel;
+
+    private Button sortButton;
 
     private static MainActivity myActiveActivity;
 
@@ -69,14 +73,15 @@ public class MainActivity extends AppCompatActivity {
         mViewModel.loadMaquina();
         MainController.getSingleton().requestMaquinasFromHttp(mViewModel);
 
-//        Button generar = (Button) findViewById(R.id.btMaquinas);
-//        generar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(MainActivity.this, "Obteniendo info de las maquinas",Toast.LENGTH_LONG).show();
-//                MainController.getSingleton().requestMaquinasFromHttp();
-//            }
-//        });
+        sortButton = findViewById(R.id.btnSort);
+        sortButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SortDialogFragment dialogFragment = new SortDialogFragment();
+                dialogFragment.show(getSupportFragmentManager(),null);
+
+            }
+        });
 
         MainActivity.myActiveActivity = this;
         MainController.setActivity(this);
