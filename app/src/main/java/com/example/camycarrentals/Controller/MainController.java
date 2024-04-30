@@ -34,6 +34,10 @@ public class MainController {
         this.maquinaCardViewModel = maquinaCardViewModel;
     }
 
+    public MaquinaCardViewModel getMaquinaCardViewModel() {
+        return maquinaCardViewModel;
+    }
+
     public List<Maquina> getMaquinasRequested() {
         return this.maquinasRequested;
     }
