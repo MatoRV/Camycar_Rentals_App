@@ -10,13 +10,22 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class SortBottomDialogFragment extends BottomSheetDialogFragment {
 
-    public static SortBottomDialogFragment newInstance() {
-        return new SortBottomDialogFragment();
+    private static SortBottomDialogFragment mSortBottomDialogFragment;
+
+    private SortBottomDialogFragment() {
+
+    }
+
+    public static SortBottomDialogFragment getmSortBottomDialogFragment() {
+        if (SortBottomDialogFragment.mSortBottomDialogFragment == null) {
+            mSortBottomDialogFragment = new SortBottomDialogFragment();
+        }
+        return mSortBottomDialogFragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.sort_fragment,container,false);
+        return inflater.inflate(R.layout.sort_fragment, container, false);
     }
 }

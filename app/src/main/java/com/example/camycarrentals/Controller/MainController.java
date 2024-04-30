@@ -1,7 +1,6 @@
 package com.example.camycarrentals.Controller;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Controller.peticionGET.PeticionMaquinas;
@@ -39,7 +38,7 @@ public class MainController {
         return this.maquinasRequested;
     }
 
-    public void requestMaquinasFromHttp(MaquinaCardViewModel maquinaCardViewModel) {
+    public void requestMaquinasFromHttp(MaquinaCardViewModel maquinaCardViewModel, String filtro) {
         PeticionMaquinas p = new PeticionMaquinas();
         p.requestMaquinas(URL);
         this.maquinaCardViewModel = maquinaCardViewModel;
