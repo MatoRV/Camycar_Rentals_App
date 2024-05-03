@@ -1,4 +1,4 @@
-package com.example.camycarrentals.Model;
+package com.example.camycarrentals.View;
 
 import java.util.ArrayList;
 import android.os.Bundle;
@@ -20,10 +20,10 @@ import org.jetbrains.annotations.NotNull;
 public class SortBottomDialogFragment extends BottomSheetDialogFragment {
 
     private MaterialButton aplicarButton, resetButton;
-    private ChipGroup cgFabricante, cgTipoMaquina;
+    private ChipGroup cgFabricante, cgTipoMaquina, cgCapacidadCarga, cgEstado;
     private MaquinaCardViewModel mViewModel;
 
-    private Chip chip;
+    private Chip chipFabricante, chipTipoMaquina, chipCapacidadCarga, chipEstado;
     public SortBottomDialogFragment() {
 
     }
@@ -38,17 +38,40 @@ public class SortBottomDialogFragment extends BottomSheetDialogFragment {
         resetButton = view.findViewById(R.id.btnResetAll);
         cgFabricante = view.findViewById(R.id.cgFabricante);
         cgTipoMaquina = view.findViewById(R.id.cgTipoMaquina);
+        cgCapacidadCarga = view.findViewById(R.id.cgCapacidadCarga);
+        cgEstado = view.findViewById(R.id.cgEstado);
 
-        StringBuilder filtro = new StringBuilder("/filtro?");
+        StringBuilder filtro = new StringBuilder("/filtro");
         ArrayList<String> cadena = new ArrayList<>();
+        cadena.add("");
+        cadena.add("");
+        cadena.add("");
+        cadena.add("");
 
+        cgCapacidadCarga.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull @NotNull ChipGroup group, int checkedId) {
+                chipCapacidadCarga = group.findViewById(checkedId);
+                if (chipCapacidadCarga != null) {
+                    cadena.set(0, "capacidadCarga=" + chipCapacidadCarga.getText().toString());
+                }
+            }
+        });
+        cgEstado.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull @NotNull ChipGroup group, int checkedId) {
+                chipEstado = group.findViewById(checkedId);
+                if (chipEstado != null) {
+                    cadena.set(1, "estado=" + chipEstado.getText().toString());
+                }
+            }
+        });
         cgFabricante.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull @NotNull ChipGroup group, int checkedId) {
-                chip = group.findViewById(checkedId);
-                if (chip != null) {
-                    cadena.add("fabricante=" + chip.getText().toString());
-                    filtro.append("fabricante=").append(chip.getText().toString());
+                chipFabricante = group.findViewById(checkedId);
+                if (chipFabricante != null) {
+                    cadena.set(2, "fabricante=" + chipFabricante.getText().toString());
                 }
             }
         });
@@ -56,10 +79,9 @@ public class SortBottomDialogFragment extends BottomSheetDialogFragment {
         cgTipoMaquina.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(@NonNull @NotNull ChipGroup group, int checkedId) {
-                chip = group.findViewById(checkedId);
-                if (chip != null) {
-                    cadena.add("tipoMaquina=" + chip.getId());
-                    Toast.makeText(view.getContext(), "El id es: " + chip.getId(), Toast.LENGTH_SHORT).show();
+                chipTipoMaquina = group.findViewById(checkedId);
+                if (chipTipoMaquina != null) {
+                    cadena.set(3, "tipoMaquina=" + chipTipoMaquina.getText().toString());
                 }
             }
         });
@@ -67,34 +89,47 @@ public class SortBottomDialogFragment extends BottomSheetDialogFragment {
             @Override
             public void onClick(View view) {
                 if (cadena.size() > 1) {
+                    if (!cadena.get(0).equals("") && !cadena.get(1).equals("") && !cadena.get(2).equals("") && !cadena.get(3).equals("")) {
+                        filtro.append("?");
+                    }
                     for (int i = 0; i < cadena.size(); i++) {
                         if (i == cadena.size() - 1) {
                             filtro.append(cadena.get(i));
-                        } else {
+                        } else if (!cadena.get(i).equals("")) {
                             filtro.append(cadena.get(i)).append("&");
                         }
                     }
                 }
                 if (cadena.size() == 1) {
-                    filtro.append(cadena.get(0));
+                    filtro.append("?").append(cadena.get(0));
                 } else {
                     filtro.append("");
                 }
 
                 mViewModel.loadMaquina(String.valueOf(filtro));
+                Toast.makeText(view.getContext(), "Filtro: " + filtro, Toast.LENGTH_LONG).show();
+                filtro.delete(7, filtro.length());
             }
         });
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Reset", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < cgCapacidadCarga.getChildCount(); i++) {
+                    chipCapacidadCarga = (Chip) cgCapacidadCarga.getChildAt(i);
+                    chipCapacidadCarga.setChecked(false);
+                }
+                for (int i = 0; i < cgEstado.getChildCount(); i++) {
+                    chipEstado = (Chip) cgEstado.getChildAt(i);
+                    chipEstado.setChecked(false);
+                }
                 for (int i = 0; i < cgFabricante.getChildCount(); i++) {
-                    chip = (Chip) cgFabricante.getChildAt(i);
-                    chip.setChecked(false);
+                    chipFabricante = (Chip) cgFabricante.getChildAt(i);
+                    chipFabricante.setChecked(false);
                 }
                 for (int i = 0; i < cgTipoMaquina.getChildCount(); i++) {
-                    chip = (Chip) cgTipoMaquina.getChildAt(i);
-                    chip.setChecked(false);
+                    chipTipoMaquina = (Chip) cgTipoMaquina.getChildAt(i);
+                    chipTipoMaquina.setChecked(false);
                 }
                 mViewModel.loadMaquina("");
             }

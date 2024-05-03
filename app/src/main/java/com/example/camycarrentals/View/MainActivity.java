@@ -14,7 +14,6 @@ import com.example.camycarrentals.Controller.MainController;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardAdapter;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Model.Maquina;
-import com.example.camycarrentals.Model.SortBottomDialogFragment;
 import com.example.camycarrentals.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        sortBottomDialogFragment = new SortBottomDialogFragment();
         setSupportActionBar(toolbar);
+        sortBottomDialogFragment = new SortBottomDialogFragment();
         sortButton = findViewById(R.id.btnSort);
 
         mRecyclerView = findViewById(R.id.rvMaquinas);

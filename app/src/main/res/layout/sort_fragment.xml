@@ -123,10 +123,12 @@
                                                     android:id="@+id/cgTipoMaquina">
             <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
                                                    style="@style/Widget.Material3.Chip.Filter"
+                                                   android:id="@+id/cT1"
                                                    android:text="@string/elevadora"/>
 
             <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
                                                    android:text="@string/torito"
+                                                   android:id="@+id/cT2"
                                                    style="@style/Widget.Material3.Chip.Filter"/>
 
         </com.google.android.material.chip.ChipGroup>
@@ -137,6 +139,80 @@
                                                              app:layout_constraintStart_toStartOf="parent"
                                                              app:layout_constraintTop_toBottomOf="@+id/cgTipoMaquina"
                                                              app:layout_constraintEnd_toEndOf="parent"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="Capacidad Carga"
+                  android:textAppearance="?textAppearanceLabelLarge"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/dividerFilter"
+                  android:layout_marginTop="24dp"
+                  android:id="@+id/lblCapacidadCarga"/>
+        <com.google.android.material.chip.ChipGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                    app:chipSpacingVertical="0dp"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/lblCapacidadCarga"
+                                                    app:selectionRequired="false"
+                                                    app:singleSelection="true"
+                                                    android:id="@+id/cgCapacidadCarga">
+            <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   style="@style/Widget.Material3.Chip.Filter"
+                                                   android:id="@+id/cCC1"
+                                                   android:text="1500"/>
+
+            <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   android:text="2000"
+                                                   android:id="@+id/cCC2"
+                                                   style="@style/Widget.Material3.Chip.Filter"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                             android:id="@+id/dividerCapacidadCarga"
+                                                             android:layout_marginTop="8dp"
+                                                             app:layout_constraintEnd_toEndOf="parent"
+                                                             app:layout_constraintTop_toBottomOf="@+id/cgCapacidadCarga"
+                                                             app:layout_constraintStart_toStartOf="parent"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="Estado"
+                  android:textAppearance="?textAppearanceLabelLarge"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/dividerCapacidadCarga"
+                  android:layout_marginTop="24dp"
+                  android:id="@+id/lblEstado"/>
+        <com.google.android.material.chip.ChipGroup android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                    app:chipSpacingVertical="0dp"
+                                                    app:layout_constraintEnd_toEndOf="parent"
+                                                    app:layout_constraintStart_toStartOf="parent"
+                                                    app:layout_constraintTop_toBottomOf="@+id/lblEstado"
+                                                    app:selectionRequired="false"
+                                                    app:singleSelection="true"
+                                                    android:id="@+id/cgEstado">
+            <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   style="@style/Widget.Material3.Chip.Filter"
+                                                   android:id="@+id/cE1"
+                                                   android:text="DISPONIBLE"/>
+
+            <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   android:text="NO DISPONIBLE"
+                                                   android:id="@+id/cE2"
+                                                   style="@style/Widget.Material3.Chip.Filter"/>
+            <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   style="@style/Widget.Material3.Chip.Filter"
+                                                   android:id="@+id/cE3"
+                                                   android:text="ALQUILADO"/>
+            <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                                   style="@style/Widget.Material3.Chip.Filter"
+                                                   android:id="@+id/cE4"
+                                                   android:text="MANTENIMIENTO"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                             android:id="@+id/dividerEstado"
+                                                             android:layout_marginTop="8dp"
+                                                             app:layout_constraintEnd_toEndOf="parent"
+                                                             app:layout_constraintStart_toStartOf="parent"
+                                                             app:layout_constraintTop_toBottomOf="@+id/cgEstado"
+        />
 
         <com.google.android.material.button.MaterialButton android:layout_width="0dp" android:layout_height="wrap_content"
                                                            style="@style/Widget.Material3.Button"
@@ -145,8 +221,9 @@
                                                            android:text="@string/aplicar"
                                                            app:layout_constraintEnd_toEndOf="parent"
                                                            app:layout_constraintStart_toEndOf="@+id/frameLayout"
-                                                           app:layout_constraintTop_toBottomOf="@+id/dividerFilter"
+                                                           app:layout_constraintTop_toBottomOf="@+id/dividerEstado"
                                                            android:id="@+id/btnApply"/>
+
 
         <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content"
                      android:layout_marginEnd="8dp"
