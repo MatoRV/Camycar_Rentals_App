@@ -10,4 +10,7 @@
     <string name="filtros">Filtros</string>
     <string name="elevadora">Elevadora</string>
     <string name="torito">Torito</string>
+    <string name="correo">Correo</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="login">Login</string>
 </resources>

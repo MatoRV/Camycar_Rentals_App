@@ -1,11 +1,9 @@
-package com.example.camycarrentals.Controller.peticionGET;
+package com.example.camycarrentals.Controller.peticionGET.maquina;
 
 import java.io.IOException;
 import android.os.Handler;
 import android.os.Looper;
-
 import com.example.camycarrentals.Controller.MainController;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;

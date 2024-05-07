@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!-- EditText usuario -->
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:id="@+id/editTextCorreo"
+                                                           android:hint="@string/correo"
+                                                           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- EditText contraseña -->
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:id="@+id/editTextContrasena"
+                                                           android:hint="@string/contrasena"
+                                                           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Login Button -->
+    <Button android:layout_width="match_parent" android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/buttonLogin"
+            android:text="@string/login"
+            style="@style/Widget.MaterialComponents.Button"
+    />
+</LinearLayout>
