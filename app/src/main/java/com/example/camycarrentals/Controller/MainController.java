@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Controller.peticionGET.maquina.PeticionMaquinas;
-import com.example.camycarrentals.Controller.respuestas.RespuestaMaquinas;
+import com.example.camycarrentals.Controller.respuestas.maquina.RespuestaMaquinas;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.Util.Conexion;
 import com.example.camycarrentals.View.MainActivity;

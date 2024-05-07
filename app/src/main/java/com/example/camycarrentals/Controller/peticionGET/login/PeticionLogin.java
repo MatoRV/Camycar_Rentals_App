@@ -18,17 +18,23 @@ public class PeticionLogin {
     public void requestLogin(String URL) {
         OkHttpClient cliente = new OkHttpClient();
 
-        Request peticion = new Request.Builder()
-                .url(URL)
-                .get()
-                .addHeader("cache-control","no-cache")
-                .build();
+        Request peticion = new Request.Builder().url(URL).get().addHeader("cache-control", "no-cache").build();
 
         Call llamada = cliente.newCall(peticion);
+
+        //        try {
+        //            Thread.sleep(5 * 1000);
         llamada.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-
+                String respuesta = "{\"existe\":true}";
+                Handler manejador = new Handler(Looper.getMainLooper());
+                manejador.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        LoginController.getSingleton().setLoginFromHttp(respuesta);
+                    }
+                });
             }
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
@@ -37,10 +43,13 @@ public class PeticionLogin {
                 manejador.post(new Runnable() {
                     @Override
                     public void run() {
-                        LoginController.getSingleton();
+                        LoginController.getSingleton().setLoginFromHttp(respuesta);
                     }
                 });
             }
         });
+        //        } catch (InterruptedException e) {
+        //            throw new RuntimeException(e);
+        //        }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.camycarrentals.Controller.respuestas;
+package com.example.camycarrentals.Controller.respuestas.maquina;
 
 import java.util.ArrayList;
 import com.example.camycarrentals.Model.Maquina;

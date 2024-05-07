@@ -1,8 +1,7 @@
 package com.example.camycarrentals.Controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.example.camycarrentals.Controller.peticionGET.login.PeticionLogin;
+import com.example.camycarrentals.Controller.respuestas.login.RespuestaLogin;
 import com.example.camycarrentals.Util.Conexion;
 import com.example.camycarrentals.View.LoginActivity;
 
@@ -12,10 +11,10 @@ public class LoginController {
 
     private static LoginActivity activeActivity;
 
-    private List<String> datosLogin;
+    private boolean datosLogin;
 
     private LoginController() {
-        datosLogin = new ArrayList<>();
+        
     }
 
     public static LoginController getSingleton() {
@@ -25,12 +24,18 @@ public class LoginController {
         return myLoginController;
     }
 
-    public List<String> getDatosLogin() {
+    public boolean getDatosLogin() {
         return this.datosLogin;
     }
 
-    public void requestLoginFromHttp() {
+    public void requestLoginFromHttp(String correo, String contrasena) {
         PeticionLogin p = new PeticionLogin();
-        p.requestLogin(Conexion.URL);
+        String enlace = Conexion.URL + "usuarios/comprobar?correo=" + correo + "&contrasena=" + contrasena;
+        p.requestLogin(enlace);
+    }
+
+    public void setLoginFromHttp(String json) {
+        RespuestaLogin r = new RespuestaLogin(json);
+        datosLogin = r.getLogin();
     }
 }
