@@ -13,4 +13,6 @@
     <string name="correo">Correo</string>
     <string name="contrasena">Contraseña</string>
     <string name="login">Login</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
 </resources>
