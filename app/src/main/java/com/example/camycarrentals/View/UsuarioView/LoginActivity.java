@@ -1,4 +1,4 @@
-package com.example.camycarrentals.View;
+package com.example.camycarrentals.View.UsuarioView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.camycarrentals.Controller.LoginController;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.R;
+import com.example.camycarrentals.View.MainActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,14 +40,16 @@ public class LoginActivity extends AppCompatActivity {
                 if (textInputLayoutContrasena.getEditText() != null) {
                     contrasena = textInputLayoutContrasena.getEditText().getText().toString();
                 }
-                LoginController.getSingleton().requestLoginFromHttp(correo, contrasena);
-                //                try {
-                //                    Thread.sleep(4 * 1000);
+                // TODO QUITAR ESTE IF
+                if (correo.equals("admin") && contrasena.equals("1234")) {
+                    LoginController.getSingleton().setDatosLogin(new Usuario(1, "11111", "admin", "apellido1", "apellido2", "admin@gmail.com"));
+                } else {
+                    LoginController.getSingleton().requestLoginFromHttp(correo, contrasena);
+                }
+
                 login = LoginController.getSingleton().getDatosLogin();
-                //                } catch (InterruptedException e) {
-                //                    throw new RuntimeException(e);
-                //                }
-                if (login != null) {
+
+                if (login != null || (correo.equals("admin") && contrasena.equals("1234"))) {
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
                     Toast.makeText(view.getContext(), "Se ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();
                     startActivity(intent);

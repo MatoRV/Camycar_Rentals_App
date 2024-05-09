@@ -4,7 +4,7 @@ import com.example.camycarrentals.Controller.peticionGET.login.PeticionLogin;
 import com.example.camycarrentals.Controller.respuestas.login.RespuestaLogin;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.Util.Conexion;
-import com.example.camycarrentals.View.LoginActivity;
+import com.example.camycarrentals.View.UsuarioView.LoginActivity;
 
 public class LoginController {
 
@@ -27,6 +27,9 @@ public class LoginController {
 
     public Usuario getDatosLogin() {
         return this.datosLogin;
+    }
+    public void setDatosLogin(Usuario usuario) {
+        this.datosLogin = usuario;
     }
 
     public void requestLoginFromHttp(String correo, String contrasena) {

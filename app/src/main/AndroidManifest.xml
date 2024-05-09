@@ -19,7 +19,9 @@
         <activity
                 android:name=".View.MainActivity"
                 android:exported="false"/>
-        <activity android:name=".View.LoginActivity"
+        <activity android:name=".View.UsuarioView.ProfileView"
+                  android:exported="false"/>
+        <activity android:name=".View.UsuarioView.LoginActivity"
                   android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

@@ -1,6 +1,7 @@
 package com.example.camycarrentals.View;
 
 import java.util.ArrayList;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,9 @@ import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardAdapter;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.R;
+import com.example.camycarrentals.View.UsuarioView.ProfileView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private Button sortButton;
     private SortBottomDialogFragment sortBottomDialogFragment;
 
+    private BottomNavigationView mBottomNavigationView;
+
     private static MainActivity myActiveActivity;
 
     @Override
@@ -43,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         sortBottomDialogFragment = new SortBottomDialogFragment();
         sortButton = findViewById(R.id.btnSort);
+        mBottomNavigationView = findViewById(R.id.bottom_navigation);
+        mBottomNavigationView.setSelectedItemId(R.id.item1);
+        mBottomNavigationView.setOnItemSelectedListener(itemSelectedListener);
 
         mRecyclerView = findViewById(R.id.rvMaquinas);
         mAdapter = new MaquinaCardAdapter(this, mMaquinaList);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
         mViewModel = new ViewModelProvider(this).get(MaquinaCardViewModel.class);
         MainController.getSingleton().setupViewModel(mViewModel);
@@ -69,14 +77,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void accessData() {
-//        List<Maquina> maquinas = MainController.getSingleton().getMaquinasRequested();
-//        mMaquinaList.clear();
-//        for (Maquina maquina : maquinas) {
-//            mMaquinaList.add(maquina);
-//        }
-//
-//        mAdapter.notifyDataSetChanged();
-//    }
+    private final NavigationBarView.OnItemSelectedListener itemSelectedListener = item -> {
+        switch (item.getItemId()) {
+            case R.id.item2:
+                Intent p = new Intent(MainActivity.this, ProfileView.class);
+                startActivity(p);
+                finish();
+                break;
+        }
+        return false;
+    };
+
+    //    public void accessData() {
+    //        List<Maquina> maquinas = MainController.getSingleton().getMaquinasRequested();
+    //        mMaquinaList.clear();
+    //        for (Maquina maquina : maquinas) {
+    //            mMaquinaList.add(maquina);
+    //        }
+    //
+    //        mAdapter.notifyDataSetChanged();
+    //    }
 
 }
