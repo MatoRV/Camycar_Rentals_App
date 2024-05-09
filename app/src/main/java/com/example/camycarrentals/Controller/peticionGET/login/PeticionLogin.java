@@ -27,7 +27,14 @@ public class PeticionLogin {
         llamada.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                String respuesta = "{\"existe\":true}";
+                String respuesta = "{\n"
+                        + "  \"apellido1\": \"apellido1\",\n"
+                        + "  \"apellido2\": \"apellido2\",\n"
+                        + "  \"correo\": \"admin@gmail.com\",\n"
+                        + "  \"dniUsuario\": \"00000000A\",\n"
+                        + "  \"idUsuario\": 1,\n"
+                        + "  \"nombre\": \"admin\"\n"
+                        + "}";
                 Handler manejador = new Handler(Looper.getMainLooper());
                 manejador.post(new Runnable() {
                     @Override

@@ -2,6 +2,7 @@ package com.example.camycarrentals.Controller;
 
 import com.example.camycarrentals.Controller.peticionGET.login.PeticionLogin;
 import com.example.camycarrentals.Controller.respuestas.login.RespuestaLogin;
+import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.Util.Conexion;
 import com.example.camycarrentals.View.LoginActivity;
 
@@ -11,7 +12,7 @@ public class LoginController {
 
     private static LoginActivity activeActivity;
 
-    private boolean datosLogin;
+    private Usuario datosLogin;
 
     private LoginController() {
         
@@ -24,7 +25,7 @@ public class LoginController {
         return myLoginController;
     }
 
-    public boolean getDatosLogin() {
+    public Usuario getDatosLogin() {
         return this.datosLogin;
     }
 
