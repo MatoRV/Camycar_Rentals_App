@@ -17,6 +17,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout textInputLayoutCorreo, textInputLayoutContrasena;
 
+    private Usuario login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
                     contrasena = textInputLayoutContrasena.getEditText().getText().toString();
                 }
                 LoginController.getSingleton().requestLoginFromHttp(correo, contrasena);
-                Usuario login;
                 //                try {
                 //                    Thread.sleep(4 * 1000);
                 login = LoginController.getSingleton().getDatosLogin();
