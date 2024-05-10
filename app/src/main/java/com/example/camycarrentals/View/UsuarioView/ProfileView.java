@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.camycarrentals.Controller.LoginController;
@@ -38,7 +37,8 @@ public class ProfileView extends AppCompatActivity {
         mButtonIP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ProfileView.this,"No disponible aún",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ProfileView.this, InformacionPersonalView.class);
+                startActivity(intent);
             }
         });
     }
