@@ -7,37 +7,48 @@
     <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
             <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="match_parent">
-                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY"
-                           app:layout_constraintStart_toStartOf="parent"
-                           app:layout_constraintTop_toTopOf="parent"
-                           android:id="@+id/iv1"
-                           app:srcCompat="@drawable/top_background"
-                           app:layout_constraintEnd_toEndOf="parent"/>
-                <ImageView android:layout_width="125dp" android:layout_height="125dp"
-                           app:layout_constraintBottom_toBottomOf="@+id/iv1"
-                           app:layout_constraintEnd_toEndOf="parent"
-                           app:layout_constraintStart_toStartOf="@+id/iv1"
-                           app:layout_constraintTop_toBottomOf="@+id/iv1"
+                <TextView android:layout_width="wrap_content"
+                          android:id="@+id/tvPerfil"
+                          android:text="@string/perfil"
+                          android:textSize="25sp"
+                          android:textStyle="bold"
+                          android:layout_marginTop="20dp"
+                          android:layout_marginStart="20dp"
+                          app:layout_constraintStart_toStartOf="parent"
+                          app:layout_constraintTop_toTopOf="parent"
+                          app:layout_constraintBottom_toTopOf="@+id/iv2"
+                          android:layout_height="wrap_content"/>
+                <ImageView android:layout_width="50dp" android:layout_height="50dp"
+                           android:layout_marginTop="20dp"
+                           app:layout_constraintBottom_toBottomOf="@+id/tvPerfil"
+                           app:layout_constraintStart_toStartOf="@+id/tvPerfil"
+                           app:layout_constraintTop_toBottomOf="@+id/tvPerfil"
                            app:srcCompat="@drawable/profile"
                            android:id="@+id/iv2"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                           android:text="Nombre perfil"
-                          android:layout_marginTop="16dp"
-                          android:textSize="25sp"
-                          android:textStyle="bold"
-                          app:layout_constraintEnd_toEndOf="@id/iv2"
-                          app:layout_constraintStart_toStartOf="@id/iv2"
-                          app:layout_constraintTop_toBottomOf="@id/iv2"
+                          android:layout_marginTop="20dp"
+                          android:textSize="20sp"
+                          android:textStyle="bold" android:layout_marginStart="20dp"
+                          app:layout_constraintStart_toEndOf="@id/iv2"
+                          app:layout_constraintTop_toBottomOf="@id/tvPerfil"
                           android:id="@+id/tvProfile"/>
                 <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                           android:text="example@example.com"
-                          android:textSize="20sp"
+                          android:textSize="15sp"
+                          android:layout_marginStart="20dp"
                           app:layout_constraintEnd_toEndOf="@id/tvProfile"
                           app:layout_constraintStart_toStartOf="@+id/tvProfile"
                           app:layout_constraintTop_toBottomOf="@+id/tvProfile"
                           android:id="@+id/tvCorreo"/>
+                <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                                                                     android:layout_margin="20dp"
+                                                                     app:layout_constraintTop_toBottomOf="@+id/tvCorreo"
+                                                                     app:layout_constraintBottom_toTopOf="@+id/llPerfil"
+                                                                     android:layout_height="wrap_content"/>
                 <LinearLayout android:layout_width="match_parent"
                               android:orientation="vertical"
+                              android:id="@+id/llPerfil"
                               app:layout_constraintBottom_toBottomOf="parent"
                               app:layout_constraintEnd_toEndOf="parent"
                               app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +84,10 @@
                                    app:layout_constraintBottom_toBottomOf="parent"
                                    android:src="@drawable/baseline_arrow_right_24"/>
                     </androidx.constraintlayout.widget.ConstraintLayout>
-                    <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                                                                         android:layout_marginStart="20dp"
+                                                                         android:layout_marginEnd="20dp"
+                                                                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

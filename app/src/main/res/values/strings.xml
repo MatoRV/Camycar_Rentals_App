@@ -15,4 +15,5 @@
     <string name="login">Login</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
+    <string name="perfil">Perfil</string>
 </resources>
