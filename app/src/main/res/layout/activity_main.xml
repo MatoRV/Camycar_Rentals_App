@@ -3,60 +3,56 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:id="@+id/main"
+                                                   android:background="#ececec"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    tools:context=".View.MainActivity">
-    <LinearLayout
-        android:id="@+id/llmain"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/lavender"
-        android:paddingTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tvMaquinas"
-        android:layout_height="wrap_content">
-        <include layout="@layout/toolbar" />
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/frame"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:id="@+id/llMaquinas"
+                  android:gravity="center_horizontal"
+                  app:layout_constraintBottom_toTopOf="@+id/dividerMaquinas"
+                  android:orientation="horizontal">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_height="wrap_content"
+                android:text="@string/maquinas"
+                android:id="@+id/tvMaquinas"
+                android:textSize="25sp"
+                android:textStyle="bold"
+        />
+
+        <View android:layout_width="0dp" android:layout_height="0dp"
+              android:layout_weight="1"/>
+
+        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/btnSort"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:text="Filter"
+                app:icon="@drawable/ic_baseline_filter_list_24"/>
     </LinearLayout>
 
-    <TextView
-            android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:text="@string/maquinas"
-            android:id="@+id/tvMaquinas"
-            android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llmain"
-            app:layout_constraintEnd_toStartOf="@+id/btnSort"
-            app:layout_constraintBottom_toTopOf="@+id/rvMaquinas"
-            />
 
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:id="@+id/btnSort"
-            app:layout_constraintTop_toBottomOf="@+id/llmain"
-            app:layout_constraintStart_toEndOf="@+id/tvMaquinas"
-            app:layout_constraintBottom_toTopOf="@+id/rvMaquinas"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="Filter"
-            app:icon="@drawable/ic_baseline_filter_list_24"
-            app:layout_constraintEnd_toEndOf="parent"/>
+    <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent" android:layout_height="wrap_content"
+                                                         app:layout_constraintTop_toBottomOf="@+id/llMaquinas"
+                                                         android:id="@+id/dividerMaquinas"
+                                                         android:layout_marginTop="20dp"
+                                                         app:layout_constraintBottom_toTopOf="@+id/rvMaquinas"
+    />
 
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvMaquinas"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toTopOf="@+id/llBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMaquinas"
+            app:layout_constraintTop_toBottomOf="@+id/dividerMaquinas"
     />
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
