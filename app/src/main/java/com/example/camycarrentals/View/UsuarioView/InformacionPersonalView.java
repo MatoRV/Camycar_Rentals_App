@@ -35,6 +35,7 @@ public class InformacionPersonalView extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
                 finish();
             }
         });

@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.item2:
                 Intent p = new Intent(MainActivity.this, ProfileView.class);
                 startActivity(p);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
                 finish();
                 break;
         }

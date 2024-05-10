@@ -53,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
                     Toast.makeText(view.getContext(), "Se ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
+                    overridePendingTransition(R.anim.static_animation, R.anim.zoom_out);
+                    finish();
                 } else {
                     textInputLayoutContrasena.setError("No coincide contraseña");
                     Toast.makeText(view.getContext(), "Datos de login incorrectos", Toast.LENGTH_SHORT).show();

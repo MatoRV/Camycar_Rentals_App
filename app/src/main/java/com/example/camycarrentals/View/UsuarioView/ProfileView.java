@@ -39,6 +39,7 @@ public class ProfileView extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileView.this, InformacionPersonalView.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
             }
         });
     }
@@ -48,6 +49,7 @@ public class ProfileView extends AppCompatActivity {
             case R.id.item1:
                 Intent p = new Intent(ProfileView.this, MainActivity.class);
                 startActivity(p);
+                overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right);
                 finish();
                 break;
         }
