@@ -16,6 +16,7 @@ import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.R;
 import com.example.camycarrentals.View.UsuarioView.ProfileView;
+import com.example.camycarrentals.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -38,10 +39,15 @@ public class MainActivity extends AppCompatActivity {
 
     private static MainActivity myActiveActivity;
 
+    private ActivityMainBinding binding;
+
+    public static final String NEXT_SCREEN = "details_screen";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         sortBottomDialogFragment = new SortBottomDialogFragment();
         sortButton = findViewById(R.id.btnSort);
@@ -49,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
         mBottomNavigationView.setSelectedItemId(R.id.item1);
         mBottomNavigationView.setOnItemSelectedListener(itemSelectedListener);
 
-        mRecyclerView = findViewById(R.id.rvMaquinas);
-        mAdapter = new MaquinaCardAdapter(this, mMaquinaList);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvMaquinas.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvMaquinas.setHasFixedSize(true);
+        mAdapter = new MaquinaCardAdapter(mMaquinaList);
+        binding.rvMaquinas.setAdapter(mAdapter);
 
         mViewModel = new ViewModelProvider(this).get(MaquinaCardViewModel.class);
         MainController.getSingleton().setupViewModel(mViewModel);
@@ -68,6 +74,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sortBottomDialogFragment.show(getSupportFragmentManager(), null);
+            }
+        });
+
+        mAdapter.setOnClickListener(new MaquinaCardAdapter.OnClickListener() {
+            @Override
+            public void onClick(int position, Maquina item) {
+                Intent intent = new Intent(MainActivity.this, MaquinaView.class);
+                intent.putExtra(NEXT_SCREEN, item);
+                startActivity(intent);
             }
         });
 

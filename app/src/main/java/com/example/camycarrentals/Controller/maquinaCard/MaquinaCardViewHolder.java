@@ -1,31 +1,40 @@
 package com.example.camycarrentals.Controller.maquinaCard;
 
-import android.view.View;
-import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.camycarrentals.R;
+import com.example.camycarrentals.databinding.ListaMaquinasBinding;
 
 public class MaquinaCardViewHolder extends RecyclerView.ViewHolder {
 
     MaquinaCardAdapter mAdapter;
 
-    private TextView tvModeloMaquina;
+    ListaMaquinasBinding binding;
 
-    private TextView tvEstadoMaquina;
+    public MaquinaCardViewHolder(ListaMaquinasBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
+    }
 
-    public MaquinaCardViewHolder(View itemView, MaquinaCardAdapter adapter) {
-        super(itemView);
+    final ListaMaquinasBinding getBinding() {
+        return binding;
+    }
 
-        tvModeloMaquina = itemView.findViewById(R.id.modeloMaquina);
-        tvEstadoMaquina = itemView.findViewById(R.id.estadoMaquina);
-        this.mAdapter = adapter;
+    final void setBinding(ListaMaquinasBinding binding) {
+        this.binding = binding;
     }
 
     public void setTvModeloMaquina(String data) {
-        tvModeloMaquina.setText(data);
+        binding.modeloMaquina.setText(data);
     }
 
     public void setTvEstadoMaquina(String data) {
-        tvEstadoMaquina.setText(data);
+        binding.estadoMaquina.setText(data);
+    }
+
+    final String getTvModeloMaquina() {
+        return (String) binding.modeloMaquina.getText();
+    }
+
+    final String getTvEstadoMaquina() {
+        return (String) binding.estadoMaquina.getText();
     }
 }

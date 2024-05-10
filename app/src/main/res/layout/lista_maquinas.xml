@@ -6,6 +6,7 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         app:cardBackgroundColor="@android:color/transparent"
+        android:foreground="?attr/selectableItemBackground"
         app:cardElevation="0dp"
         android:layout_height="wrap_content">
 
