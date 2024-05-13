@@ -6,29 +6,32 @@ import java.util.Objects;
 public class Maquina implements Serializable {
 
     private Integer idMaquina;
+    private Integer capacidadCarga;
+    private Integer peso;
 
     private String fabricante;
-
     private String modelo;
-
-    private Integer capacidadCarga;
-
     private String estado;
-
     private String tipoMaquina;
 
-    public Maquina(Integer idMaquina, String fabricante, String modelo, Integer capacidadCarga, String estado, String tipoMaquina) {
+    public Maquina(Integer idMaquina, String fabricante, String modelo, Integer capacidadCarga, String estado, String tipoMaquina, Integer peso) {
         this.idMaquina = idMaquina;
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.capacidadCarga = capacidadCarga;
         this.estado = estado;
         this.tipoMaquina = tipoMaquina;
+        this.peso = peso;
     }
 
     public Maquina() {
     }
-
+    public Integer getPeso() {
+        return peso;
+    }
+    public void setPeso(Integer peso) {
+        this.peso = peso;
+    }
     public Integer getIdMaquina() {
         return idMaquina;
     }
@@ -79,11 +82,12 @@ public class Maquina implements Serializable {
                 && Objects.equals(modelo, maquina.modelo)
                 && Objects.equals(capacidadCarga, maquina.capacidadCarga)
                 && Objects.equals(estado, maquina.estado)
-                && Objects.equals(tipoMaquina, maquina.tipoMaquina);
+                && Objects.equals(tipoMaquina, maquina.tipoMaquina)
+                && Objects.equals(peso, maquina.peso);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(idMaquina, fabricante, modelo, capacidadCarga, estado, tipoMaquina);
+        return Objects.hash(idMaquina, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso);
     }
 
     @Override
@@ -104,6 +108,9 @@ public class Maquina implements Serializable {
                 + '\''
                 + ", tipoMaquina='"
                 + tipoMaquina
+                + '\''
+                + ", peso='"
+                + peso
                 + '\''
                 + '}';
     }

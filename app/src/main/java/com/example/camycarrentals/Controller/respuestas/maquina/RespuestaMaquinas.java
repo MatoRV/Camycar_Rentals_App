@@ -29,8 +29,9 @@ public class RespuestaMaquinas {
                 Integer capacidadCarga = maquina.get("capacidadCarga").asInt();
                 String estado = maquina.get("estado").asText();
                 String tipoMaquina = maquina.get("tipoMaquina").asText();
+                Integer peso = maquina.get("peso").asInt();
 
-                dataList.add(new Maquina(id,fabricante,modelo,capacidadCarga,estado,tipoMaquina));
+                dataList.add(new Maquina(id, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso));
             }
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);

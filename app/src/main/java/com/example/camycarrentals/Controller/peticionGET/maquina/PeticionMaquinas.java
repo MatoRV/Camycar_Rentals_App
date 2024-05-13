@@ -19,21 +19,32 @@ public class PeticionMaquinas {
     public void requestMaquinas(String URL) {
         OkHttpClient cliente = new OkHttpClient();
 
-        Request peticion = new Request.Builder()
-                .url(URL + "maquinas")
-                .get()
-                .addHeader("cache-control", "no-cache")
-                .build();
+        Request peticion = new Request.Builder().url(URL + "maquinas").get().addHeader("cache-control", "no-cache").build();
 
         Call llamada = cliente.newCall(peticion);
         llamada.enqueue(new Callback() {
             @Override
-            public void onFailure( Call call, IOException e) {
-                String respuesta = "[{\"capacidadCarga\":2500,\"estado\":\"DISPONIBLE\",\"fabricante\":\"F1\",\"idMaquina\":1,\"modelo\":\"M2\","
-                        + "\"tipoMaquina\":\"Torito\"},{\"capacidadCarga\":1500,\"estado\":\"DISPONIBLE\",\"fabricante\":\"F1\",\"idMaquina\":2,"
-                        + "\"modelo\":\"M3\",\"tipoMaquina\":\"Carretilla\"},{\"capacidadCarga\":1000,\"estado\":\"DISPONIBLE\",\"fabricante\":\"F2\","
-                        + "\"idMaquina\":3,\"modelo\":\"M1\",\"tipoMaquina\":\"Elevadora\"},{\"capacidadCarga\":2000,\"estado\":\"DISPONIBLE\","
-                        + "\"fabricante\":\"F1\",\"idMaquina\":4,\"modelo\":\"M1\",\"tipoMaquina\":\"Torito\"}]";
+            public void onFailure(Call call, IOException e) {
+                String respuesta = "[\n"
+                        + "  {\n"
+                        + "    \"capacidadCarga\": 4000,\n"
+                        + "    \"estado\": \"DISPONIBLE\",\n"
+                        + "    \"fabricante\": \"HANGCHA\",\n"
+                        + "    \"idMaquina\": 1,\n"
+                        + "    \"modelo\": \"XF A25\",\n"
+                        + "    \"peso\": 3000,\n"
+                        + "    \"tipoMaquina\": \"Torito\"\n"
+                        + "  },\n"
+                        + "  {\n"
+                        + "    \"capacidadCarga\": 2000,\n"
+                        + "    \"estado\": \"DISPONIBLE\",\n"
+                        + "    \"fabricante\": \"LIFTER\",\n"
+                        + "    \"idMaquina\": 2,\n"
+                        + "    \"modelo\": \"LX 12\",\n"
+                        + "    \"peso\": 500,\n"
+                        + "    \"tipoMaquina\": \"Carretilla\"\n"
+                        + "  }\n"
+                        + "]";
                 Handler manejador = new Handler(Looper.getMainLooper());
 
                 manejador.post(new Runnable() {
@@ -44,7 +55,7 @@ public class PeticionMaquinas {
                 });
             }
             @Override
-            public void onResponse(Call call,Response response) throws IOException {
+            public void onResponse(Call call, Response response) throws IOException {
                 String respuesta = response.body().string();
                 Handler manejador = new Handler(Looper.getMainLooper());
                 manejador.post(new Runnable() {

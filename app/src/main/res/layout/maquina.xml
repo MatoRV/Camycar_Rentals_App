@@ -6,9 +6,21 @@
                                                    android:background="@color/gray"
                                                    android:layout_height="match_parent">
 
+    <com.google.android.material.button.MaterialButton android:layout_width="wrap_content"
+                                                       style="?attr/materialIconButtonStyle"
+                                                       app:layout_constraintTop_toTopOf="parent"
+                                                       app:layout_constraintStart_toStartOf="parent"
+                                                       app:iconTint="@color/black"
+                                                       android:layout_marginStart="20dp"
+                                                       android:layout_marginTop="20dp"
+                                                       android:backgroundTint="@color/white"
+                                                       android:id="@+id/btnBackMaquina"
+                                                       app:icon="@drawable/round_arrow_back_24"
+                                                       android:layout_height="wrap_content"/>
     <ImageView android:layout_width="match_parent"
                android:layout_height="200dp"
                android:id="@+id/ivMaquina"
+               android:src="@drawable/torito"
                app:layout_constraintTop_toTopOf="parent"
     />
     <LinearLayout android:layout_width="match_parent"
@@ -86,6 +98,7 @@
                           android:text="1000"
                           android:layout_marginBottom="10dp"
                           android:layout_marginStart="10dp"
+                          android:id="@+id/tvCapacidadCarga"
                           android:textSize="18sp"
                           android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -94,6 +107,41 @@
                                                              android:layout_marginStart="20dp"
                                                              android:layout_marginEnd="20dp"
                                                              android:layout_height="wrap_content"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_marginStart="20dp"
+                      android:layout_marginEnd="20dp"
+                      android:layout_height="wrap_content">
+            <ImageView android:layout_width="45dp"
+                       android:src="@drawable/peso_icon"
+                       android:layout_margin="10dp"
+                       android:layout_gravity="center"
+                       android:layout_height="45dp"/>
+            <LinearLayout android:layout_width="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_height="wrap_content">
+                <TextView android:layout_width="wrap_content"
+                          android:text="Peso"
+                          android:textSize="20sp"
+                          android:textStyle="bold"
+                          android:layout_margin="10dp"
+                          android:layout_gravity="center_vertical"
+                          android:layout_height="wrap_content"/>
+                <TextView android:layout_width="wrap_content"
+                          android:layout_gravity="center_vertical"
+                          android:text="4500"
+                          android:layout_marginBottom="10dp"
+                          android:id="@+id/tvPeso"
+                          android:layout_marginStart="10dp"
+                          android:textSize="18sp"
+                          android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+        <com.google.android.material.divider.MaterialDivider android:layout_width="match_parent"
+                                                             android:layout_marginStart="20dp"
+                                                             android:layout_marginEnd="20dp"
+                                                             android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

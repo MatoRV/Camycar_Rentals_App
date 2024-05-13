@@ -21,7 +21,13 @@ public class MaquinaView extends AppCompatActivity {
             maquina = (Maquina) getIntent().getSerializableExtra(MainActivity.NEXT_SCREEN);
         }
         if (maquina != null) {
+            binding.tvModeloMaquina.setText(maquina.getFabricante());
             binding.putModeloMaquina.setText(maquina.getModelo());
+            binding.tvTipoMaquina.setText(maquina.getTipoMaquina());
+            String capacidadCarga = maquina.getCapacidadCarga() + "KG";
+            binding.tvCapacidadCarga.setText(capacidadCarga);
+            String peso = maquina.getPeso() + "KG";
+            binding.tvPeso.setText(peso);
         }
     }
 }
