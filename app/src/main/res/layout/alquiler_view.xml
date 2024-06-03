@@ -131,20 +131,19 @@
                      android:layout_height="50dp"/>
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-                app:layout_constraintTop_toBottomOf="@+id/llLocalidad"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:text="@string/alquilar"
-                app:cornerRadius="10dp"
-                android:id="@+id/btnAlquiler"
-        />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/alquilar"
+            app:cornerRadius="10dp"
+            android:id="@+id/btnAlquiler"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

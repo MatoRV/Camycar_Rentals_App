@@ -19,6 +19,10 @@ public class AlquilerController {
 
     private List<CharSequence> localidades;
 
+    private Spinner spinner;
+
+    private Context contextAlquiler;
+
     private AlquilerController() {
 
     }
@@ -28,6 +32,22 @@ public class AlquilerController {
             myAlquilerController = new AlquilerController();
         }
         return myAlquilerController;
+    }
+
+    public Spinner getSpinner() {
+        return this.spinner;
+    }
+
+    public void setSpinner(Spinner spinner) {
+        this.spinner = spinner;
+    }
+
+    public Context getContext() {
+        return this.contextAlquiler;
+    }
+
+    public void setContextAlquiler(Context context) {
+        this.contextAlquiler = context;
     }
 
     public List<CharSequence> getLocalidades() {
@@ -47,6 +67,7 @@ public class AlquilerController {
     public void setLocalidadesFromHttp(String json) {
         RespuestaLocalidades r = new RespuestaLocalidades(json);
         localidades = r.getLocalidades();
+        setupSpinner(getSpinner(), getContext());
     }
 
     public void setupSpinner(Spinner spinner, Context context) {

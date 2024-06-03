@@ -31,7 +31,32 @@ public class PeticionLocalidades {
         llamada.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-
+                String respuesta = "[\n"
+                        + "  {\n"
+                        + "    \"localidad\": \"ALHAURIN DE LA TORRE\"\n"
+                        + "  },\n"
+                        + "  {\n"
+                        + "    \"localidad\": \"ALHAURIN EL GRANDE\"\n"
+                        + "  },\n"
+                        + "  {\n"
+                        + "    \"localidad\": \"ALAMEDA\"\n"
+                        + "  },\n"
+                        + "  {\n"
+                        + "    \"localidad\": \"ALFARNATE\"\n"
+                        + "  },\n"
+                        + "  {\n"
+                        + "    \"localidad\": \"ALGARROBO\"\n"
+                        + "  },\n"
+                        + "  {\n"
+                        + "    \"localidad\": \"ALCAUCIN\"\n"
+                        + "  }\n]";
+                Handler manejador = new Handler(Looper.getMainLooper());
+                manejador.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        AlquilerController.getSingleton().setLocalidadesFromHttp(respuesta);
+                    }
+                });
             }
             @Override
             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {

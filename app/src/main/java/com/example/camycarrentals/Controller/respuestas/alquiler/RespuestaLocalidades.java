@@ -23,7 +23,7 @@ public class RespuestaLocalidades {
             JsonNode jn = om.readTree(this.datos);
 
             for (JsonNode localidad: jn) {
-                localidades.add(localidad.asText());
+                localidades.add(localidad.get("localidad").asText());
             }
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
