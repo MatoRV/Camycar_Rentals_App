@@ -95,23 +95,21 @@
                       android:layout_marginEnd="20dp"
                       android:textColor="@color/black"
                       android:layout_height="wrap_content"/>
-            <EditText android:layout_width="250dp"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/etDatePickerAlquiler"
-                      android:inputType="date"
-                      android:focusable="false"
-                      android:maxLines="1"
-                      android:layout_marginEnd="20dp"
-            />
-            <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="?attr/materialIconButtonStyle"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:iconTint="@color/black"
-                    android:id="@+id/btnDatePickerAlquiler"
-                    app:icon="@drawable/round_date_range_24"/>
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="250dp"
+                    android:id="@+id/tilDatePickerAlquiler"
+                    app:startIconDrawable="@drawable/round_date_range_24"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:id="@+id/tietDatePickerAlquiler"
+                        android:clickable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
