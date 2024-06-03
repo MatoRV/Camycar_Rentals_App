@@ -13,7 +13,6 @@
                                                        app:iconTint="@color/black"
                                                        android:layout_marginStart="20dp"
                                                        android:layout_marginTop="20dp"
-                                                       android:backgroundTint="@color/white"
                                                        android:id="@+id/btnBackMaquina"
                                                        app:icon="@drawable/round_arrow_back_24"
                                                        android:layout_height="wrap_content"/>
@@ -143,5 +142,17 @@
                                                              android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="20dp"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="@string/alquilar"
+            app:cornerRadius="10dp"
+            android:id="@+id/btnAlquiler"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
