@@ -1,16 +1,18 @@
 package com.example.camycarrentals.View;
 
 import static com.example.camycarrentals.View.MainActivity.NEXT_SCREEN;
-import android.app.DatePickerDialog;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 import com.example.camycarrentals.Controller.AlquilerController;
 import com.example.camycarrentals.Model.Maquina;
-import com.example.camycarrentals.R;
 import com.example.camycarrentals.databinding.AlquilerViewBinding;
+import com.google.android.material.datepicker.MaterialDatePicker;
 
 public class AlquilerView extends AppCompatActivity {
 
@@ -40,30 +42,29 @@ public class AlquilerView extends AppCompatActivity {
         AlquilerController.getSingleton().setSpinner(spinner);
         AlquilerController.getSingleton().setContextAlquiler(AlquilerView.this);
 
+        String[] fechas = new String[2];
+
+        MaterialDatePicker<Pair<Long, Long>> materialDatePicker = MaterialDatePickerFragment.crearDatePicker();
         binding.tietDatePickerAlquiler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.tietDatePickerAlquiler:
-                        showDatePickerDialog();
-                        break;
-                }
+                materialDatePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
             }
+        });
+
+        materialDatePicker.addOnPositiveButtonClickListener(selection -> {
+
+            Long startDate = selection.first;
+            Long endDate = selection.second;
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+            fechas[0] = sdf.format(new Date(startDate));
+            fechas[1] = sdf.format(new Date(endDate));
+
+            String selectedDates = fechas[0] + " - " + fechas[1];
+
+            binding.tietDatePickerAlquiler.setText(selectedDates);
         });
     }
 
-    private void showDatePickerDialog() {
-        DatePickerFragment newFragment = new DatePickerFragment().newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                final String fechaSeleccionada = dosDigitos(day) + " / " + dosDigitos(month + 1) + " / " + year;
-                binding.tietDatePickerAlquiler.setText(fechaSeleccionada);
-            }
-        });
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
-
-    private String dosDigitos(int n) {
-        return (n >= 9) ? ("0" + n) : String.valueOf(n);
-    }
 }

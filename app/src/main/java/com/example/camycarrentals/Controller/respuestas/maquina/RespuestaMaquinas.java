@@ -1,6 +1,9 @@
 package com.example.camycarrentals.Controller.respuestas.maquina;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import android.util.Log;
 import com.example.camycarrentals.Model.Maquina;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -28,10 +31,21 @@ public class RespuestaMaquinas {
                 String modelo = maquina.get("modelo").asText();
                 Integer capacidadCarga = maquina.get("capacidadCarga").asInt();
                 String estado = maquina.get("estado").asText();
-                String tipoMaquina = maquina.get("tipoMaquina").asText();
+                JsonNode tipoMaquinaNombre = maquina.get("tipoMaquina");
+                String tipoMaquina = tipoMaquinaNombre.get("nombre").asText();
                 Integer peso = maquina.get("peso").asInt();
-
-                dataList.add(new Maquina(id, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso));
+                JsonNode diasReservados = maquina.get("diasReservados");
+                JsonNode arrayDias = diasReservados.get("dias");
+                List<String> dias = new ArrayList<>();
+                if (arrayDias.size() != 0) {
+                    for (int i = 0; i < arrayDias.size(); i++) {
+                        dias.add(arrayDias.get(i).asText());
+                    }
+                } else {
+                    dias = Collections.emptyList();
+                }
+                Log.d("FECHAS", dias.toString());
+                dataList.add(new Maquina(id, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso, dias));
             }
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);

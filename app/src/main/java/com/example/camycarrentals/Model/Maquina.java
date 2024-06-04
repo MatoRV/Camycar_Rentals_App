@@ -1,6 +1,7 @@
 package com.example.camycarrentals.Model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 public class Maquina implements Serializable {
@@ -14,7 +15,10 @@ public class Maquina implements Serializable {
     private String estado;
     private String tipoMaquina;
 
-    public Maquina(Integer idMaquina, String fabricante, String modelo, Integer capacidadCarga, String estado, String tipoMaquina, Integer peso) {
+    private List<String> dias;
+
+    public Maquina(Integer idMaquina, String fabricante, String modelo, Integer capacidadCarga, String estado, String tipoMaquina, Integer peso,
+            List<String> dias) {
         this.idMaquina = idMaquina;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -22,6 +26,7 @@ public class Maquina implements Serializable {
         this.estado = estado;
         this.tipoMaquina = tipoMaquina;
         this.peso = peso;
+        this.dias = dias;
     }
 
     public Maquina() {
@@ -50,6 +55,9 @@ public class Maquina implements Serializable {
     public String getTipoMaquina() {
         return tipoMaquina;
     }
+    public List<String> getDias() {
+        return dias;
+    }
 
     public void setIdMaquina(Integer idMaquina) {
         this.idMaquina = idMaquina;
@@ -69,6 +77,9 @@ public class Maquina implements Serializable {
     public void setTipoMaquina(String tipoMaquina) {
         this.tipoMaquina = tipoMaquina;
     }
+    public void setDias(List<String> dias) {
+        this.dias = dias;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -83,11 +94,12 @@ public class Maquina implements Serializable {
                 && Objects.equals(capacidadCarga, maquina.capacidadCarga)
                 && Objects.equals(estado, maquina.estado)
                 && Objects.equals(tipoMaquina, maquina.tipoMaquina)
-                && Objects.equals(peso, maquina.peso);
+                && Objects.equals(peso, maquina.peso)
+                && Objects.equals(dias, maquina.dias);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(idMaquina, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso);
+        return Objects.hash(idMaquina, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso, dias);
     }
 
     @Override
@@ -111,6 +123,9 @@ public class Maquina implements Serializable {
                 + '\''
                 + ", peso='"
                 + peso
+                + '\''
+                + ", dias='"
+                + dias
                 + '\''
                 + '}';
     }

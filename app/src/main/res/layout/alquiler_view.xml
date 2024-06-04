@@ -102,7 +102,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
-                        android:inputType="date"
                         android:focusable="false"
                         android:id="@+id/tietDatePickerAlquiler"
                         android:clickable="true"
