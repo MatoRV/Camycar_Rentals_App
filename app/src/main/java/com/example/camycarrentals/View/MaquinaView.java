@@ -42,5 +42,12 @@ public class MaquinaView extends AppCompatActivity {
                 }
             });
         }
+
+        binding.btnBackMaquina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

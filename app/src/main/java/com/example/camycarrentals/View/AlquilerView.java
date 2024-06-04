@@ -65,6 +65,13 @@ public class AlquilerView extends AppCompatActivity {
 
             binding.tietDatePickerAlquiler.setText(selectedDates);
         });
+
+        binding.btnBackAlquiler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
 }
