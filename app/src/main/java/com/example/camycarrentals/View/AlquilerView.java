@@ -6,7 +6,9 @@ import java.util.Date;
 import java.util.Locale;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import com.example.camycarrentals.Controller.AlquilerController;
@@ -43,6 +45,7 @@ public class AlquilerView extends AppCompatActivity {
         AlquilerController.getSingleton().setContextAlquiler(AlquilerView.this);
 
         String[] fechas = new String[2];
+        final String[] localidad = new String[1];
 
         MaterialDatePicker<Pair<Long, Long>> materialDatePicker = MaterialDatePickerFragment.crearDatePicker();
         binding.tietDatePickerAlquiler.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +69,32 @@ public class AlquilerView extends AppCompatActivity {
             binding.tietDatePickerAlquiler.setText(selectedDates);
         });
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                localidad[0] = spinner.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         binding.btnBackAlquiler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        binding.btnAlquiler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (localidad[0] == null || (fechas[0] == null && fechas[1] == null)) {
+                    Toast.makeText(AlquilerView.this, "Faltan por seleccionar datos", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AlquilerView.this, fechas.toString() + " " + localidad, Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

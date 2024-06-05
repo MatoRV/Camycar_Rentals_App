@@ -96,7 +96,7 @@
                       android:textColor="@color/black"
                       android:layout_height="wrap_content"/>
             <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="250dp"
+                    android:layout_width="300dp"
                     android:id="@+id/tilDatePickerAlquiler"
                     app:startIconDrawable="@drawable/round_date_range_24"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
