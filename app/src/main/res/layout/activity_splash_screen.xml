@@ -7,6 +7,7 @@
         tools:context=".View.SplashView">
 
     <ImageView android:layout_width="250dp"
+               android:id="@+id/ivSplash"
                android:src="@drawable/logo"
                android:layout_centerVertical="true"
                android:layout_centerHorizontal="true"

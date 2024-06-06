@@ -100,14 +100,4 @@ public class MainActivity extends AppCompatActivity {
         return false;
     };
 
-    //    public void accessData() {
-    //        List<Maquina> maquinas = MainController.getSingleton().getMaquinasRequested();
-    //        mMaquinaList.clear();
-    //        for (Maquina maquina : maquinas) {
-    //            mMaquinaList.add(maquina);
-    //        }
-    //
-    //        mAdapter.notifyDataSetChanged();
-    //    }
-
 }

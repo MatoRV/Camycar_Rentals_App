@@ -54,11 +54,6 @@
                                                        android:text="@string/orden_alfabetico"
                                                        tools:checked="true"/>
 
-                <com.google.android.material.chip.Chip android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                                       android:id="@+id/populationSort"
-                                                       style="@style/Widget.Material3.Chip.Filter"
-                                                       android:text="sort population"/>
-
             </com.google.android.material.chip.ChipGroup>
 
         </HorizontalScrollView>
