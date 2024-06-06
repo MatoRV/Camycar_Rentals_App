@@ -6,6 +6,12 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <ImageView
+            android:layout_width="250dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="250dp"/>
+
     <!-- EditText usuario -->
     <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
                                                            android:layout_height="wrap_content"
