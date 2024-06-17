@@ -22,8 +22,6 @@ public class PeticionLogin {
 
         Call llamada = cliente.newCall(peticion);
 
-        //        try {
-        //            Thread.sleep(5 * 1000);
         llamada.enqueue(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
@@ -55,8 +53,5 @@ public class PeticionLogin {
                 });
             }
         });
-        //        } catch (InterruptedException e) {
-        //            throw new RuntimeException(e);
-        //        }
     }
 }

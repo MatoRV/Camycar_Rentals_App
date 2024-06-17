@@ -8,6 +8,7 @@ import com.example.camycarrentals.Model.Maquina;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
 
 public class RespuestaMaquinas {
 
@@ -21,9 +22,12 @@ public class RespuestaMaquinas {
 
         ArrayList<Maquina> dataList = new ArrayList<>();
 
+        ObjectMapper om = new ObjectMapper();
+        ObjectReader or = om.reader();
+
         try {
-            ObjectMapper om = new ObjectMapper();
-            JsonNode maquinas = om.readTree(this.datos);
+
+            JsonNode maquinas = or.readTree(this.datos);
 
             for (JsonNode maquina: maquinas) {
                 Integer id = maquina.get("idMaquina").asInt();
@@ -35,20 +39,21 @@ public class RespuestaMaquinas {
                 String tipoMaquina = tipoMaquinaNombre.get("nombre").asText();
                 Integer peso = maquina.get("peso").asInt();
                 JsonNode diasReservados = maquina.get("diasReservados");
-                JsonNode arrayDias = diasReservados.get("dias");
                 List<String> dias = new ArrayList<>();
-                if (arrayDias.size() != 0) {
-                    for (int i = 0; i < arrayDias.size(); i++) {
-                        dias.add(arrayDias.get(i).asText());
+
+                if (diasReservados != null && diasReservados.has("dias")) {
+                    JsonNode arrayDias = diasReservados.get("dias");
+                    for (JsonNode dia : arrayDias) {
+                        dias.add(dia.asText());
                     }
-                } else {
-                    dias = Collections.emptyList();
                 }
+
                 Log.d("FECHAS", dias.toString());
                 dataList.add(new Maquina(id, fabricante, modelo, capacidadCarga, estado, tipoMaquina, peso, dias));
             }
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            Log.d("RespuestaMaquinas", "Error procesando json", e);
+            throw new RuntimeException("Error procesando JSON", e);
         }
 
         return dataList;

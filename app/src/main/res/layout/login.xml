@@ -20,6 +20,7 @@
                                                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"/>
 
@@ -35,6 +36,7 @@
                                                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etContrasena"
                 android:layout_width="match_parent"
                 android:inputType="textPassword"
                 android:layout_height="60dp"/>
@@ -48,4 +50,12 @@
             android:text="@string/login"
             style="@style/Widget.MaterialComponents.Button"
     />
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/buttonRegister"
+        android:text="@string/register_text"
+        android:textSize="18sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

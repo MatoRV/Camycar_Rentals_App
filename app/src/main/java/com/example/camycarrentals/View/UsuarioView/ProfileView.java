@@ -31,8 +31,8 @@ public class ProfileView extends AppCompatActivity {
 
         mBottomNavigationBar.setSelectedItemId(R.id.item2);
         mBottomNavigationBar.setOnItemSelectedListener(itemSelectedListener);
-        tvCorreo.setText(LoginController.getSingleton().getDatosLogin().getCorreo());
-        tvNombre.setText(LoginController.getSingleton().getDatosLogin().getNombre());
+        tvCorreo.setText(LoginController.getSingleton().getDatosLogin().get(0).getCorreo());
+        tvNombre.setText(LoginController.getSingleton().getDatosLogin().get(0).getNombre());
 
         mButtonIP.setOnClickListener(new View.OnClickListener() {
             @Override

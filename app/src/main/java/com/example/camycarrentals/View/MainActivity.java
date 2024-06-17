@@ -24,10 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Maquina> mMaquinaList = new ArrayList<>();
 
-    Toolbar toolbar;
-
-    private RecyclerView mRecyclerView;
-
     private MaquinaCardAdapter mAdapter;
 
     private MaquinaCardViewModel mViewModel;
@@ -94,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent p = new Intent(MainActivity.this, ProfileView.class);
                 startActivity(p);
                 overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-                finish();
                 break;
         }
         return false;

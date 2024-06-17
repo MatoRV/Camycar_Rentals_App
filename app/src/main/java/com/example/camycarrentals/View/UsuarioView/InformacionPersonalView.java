@@ -26,10 +26,10 @@ public class InformacionPersonalView extends AppCompatActivity {
         tvDni = findViewById(R.id.tvDniIP);
         btnBack = findViewById(R.id.btnBackPI);
 
-        tvNombre.setText(LoginController.getSingleton().getDatosLogin().getNombre());
-        tvCorreo.setText(LoginController.getSingleton().getDatosLogin().getCorreo());
-        tvDni.setText(LoginController.getSingleton().getDatosLogin().getDniUsuario());
-        String apellidos = LoginController.getSingleton().getDatosLogin().getApellido1() + " " + LoginController.getSingleton().getDatosLogin().getApellido2();
+        tvNombre.setText(LoginController.getSingleton().getDatosLogin().get(0).getNombre());
+        tvCorreo.setText(LoginController.getSingleton().getDatosLogin().get(0).getCorreo());
+        tvDni.setText(LoginController.getSingleton().getDatosLogin().get(0).getDniUsuario());
+        String apellidos = LoginController.getSingleton().getDatosLogin().get(0).getApellido1() + " " + LoginController.getSingleton().getDatosLogin().get(0).getApellido2();
         tvApellidos.setText(apellidos);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
