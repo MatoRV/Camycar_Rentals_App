@@ -1,6 +1,6 @@
 package com.example.camycarrentals.Controller;
 
-import com.example.camycarrentals.Controller.peticionGET.login.PeticionRegistro;
+import com.example.camycarrentals.Controller.peticion.login.PeticionRegistro;
 import com.example.camycarrentals.Controller.respuestas.login.RespuestaRegistro;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.Util.Conexion;

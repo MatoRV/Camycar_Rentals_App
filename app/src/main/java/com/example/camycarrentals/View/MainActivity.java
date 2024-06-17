@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.camycarrentals.Controller.LoginController;
 import com.example.camycarrentals.Controller.MainController;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardAdapter;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;

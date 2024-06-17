@@ -3,7 +3,7 @@ package com.example.camycarrentals.Controller;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.camycarrentals.Controller.maquinaCard.MaquinaCardViewModel;
-import com.example.camycarrentals.Controller.peticionGET.maquina.PeticionMaquinas;
+import com.example.camycarrentals.Controller.peticion.maquina.PeticionMaquinas;
 import com.example.camycarrentals.Controller.respuestas.maquina.RespuestaMaquinas;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.Util.Conexion;

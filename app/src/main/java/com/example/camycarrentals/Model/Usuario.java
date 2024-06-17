@@ -1,8 +1,9 @@
 package com.example.camycarrentals.Model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Usuario {
+public class Usuario implements Serializable {
 
     private Integer idUsuario;
 

@@ -1,4 +1,4 @@
-package com.example.camycarrentals.Controller.peticionGET.localidad;
+package com.example.camycarrentals.Controller.peticion.localidad;
 
 import java.io.IOException;
 import android.os.Handler;

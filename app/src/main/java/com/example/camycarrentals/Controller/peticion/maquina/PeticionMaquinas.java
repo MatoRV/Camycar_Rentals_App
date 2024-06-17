@@ -1,4 +1,4 @@
-package com.example.camycarrentals.Controller.peticionGET.maquina;
+package com.example.camycarrentals.Controller.peticion.maquina;
 
 import java.io.IOException;
 import android.os.Handler;

@@ -1,12 +1,10 @@
 package com.example.camycarrentals.Controller;
 
-import com.example.camycarrentals.Controller.peticionGET.login.PeticionLogin;
-import com.example.camycarrentals.Controller.peticionGET.login.PeticionRegistro;
+import com.example.camycarrentals.Controller.peticion.login.PeticionLogin;
 import com.example.camycarrentals.Controller.respuestas.login.RespuestaLogin;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.Util.Conexion;
 import com.example.camycarrentals.View.UsuarioView.LoginActivity;
-import com.google.gson.Gson;
 
 import java.util.LinkedList;
 
