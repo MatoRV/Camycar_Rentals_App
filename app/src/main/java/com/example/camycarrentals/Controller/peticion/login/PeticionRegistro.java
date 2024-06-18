@@ -1,14 +1,9 @@
 package com.example.camycarrentals.Controller.peticion.login;
 
-import android.os.Handler;
-import android.os.Looper;
-
-import androidx.annotation.NonNull;
-
-import com.example.camycarrentals.Controller.RegistroController;
-
 import java.io.IOException;
-
+import androidx.annotation.NonNull;
+import com.example.camycarrentals.Controller.RegistroController;
+import com.example.camycarrentals.Util.callbacks.RegistroCallback;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -23,46 +18,29 @@ public class PeticionRegistro {
 
     }
 
-    public void requestRegistro(String URL, String registroBody) {
+    public void requestRegistro(String URL, String registroBody, RegistroCallback callback) {
 
         OkHttpClient cliente = new OkHttpClient();
 
         RequestBody body = RequestBody.create(registroBody, MediaType.parse("application/json"));
 
-        Request peticion = new Request.Builder()
-                .url(URL)
-                .post(body)
-                .addHeader("Content-Type", "application/json")
-                .addHeader("cache-control", "no-cache")
-                .build();
+        Request peticion =
+                new Request.Builder().url(URL).post(body).addHeader("Content-Type", "application/json").addHeader("cache-control", "no-cache").build();
 
         Call llamada = cliente.newCall(peticion);
 
         llamada.enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                String respuesta = "{\n"
-                        + "  \"error\": \"Failed to register\"\n"
-                        + "}";
-                Handler manejador = new Handler(Looper.getMainLooper());
-                manejador.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        RegistroController.getSingleton().setRegistroFromHttp(respuesta);
-                    }
-                });
+                callback.onRegistroFailure("Ha fallado el registro");
             }
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                String respuesta = response.body().string();
-                Handler manejador = new Handler(Looper.getMainLooper());
-                manejador.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        RegistroController.getSingleton().setRegistroFromHttp(respuesta);
-                    }
-                });
+                if (response.isSuccessful()) {
+                    String respuesta = response.body().string();
+                    RegistroController.getSingleton().setRegistroFromHttp(respuesta, callback);
+                }
             }
         });
     }

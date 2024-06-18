@@ -1,0 +1,36 @@
+
+d
+java:S16043"(Make this anonymous inner class a lambda(Ì¯°ğJ$e4e0a986-74b2-4e95-8207-8f5a030ef49f
+d
+java:S1604<"(Make this anonymous inner class a lambda(‡Ğ†¡J$8214864c-ff54-4540-8fc0-4743b0e9a46d
+i
+java:S1604E"(Make this anonymous inner class a lambda(š³‚ÏÿÿÿÿÿJ$32bb3a2a-221b-47ce-8204-12ee2611c44a
+i
+java:S1604O"(Make this anonymous inner class a lambda(¿¯¯ïüÿÿÿÿJ$a4d2cac3-fa8c-4d1f-a6ac-4cd740c3ceda
+d
+java:S1604X"(Make this anonymous inner class a lambda(´§«J$204418d6-9467-4690-bbb2-dbf2f677c6a7
+d
+java:S1604q"(Make this anonymous inner class a lambda(‚úé¯J$c1fb08c8-f7ce-4803-9e6f-7a218e84ac9d
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(³¸„’ûÿÿÿÿJ$0d3bd2db-eca3-4689-9036-a1f880da0623
+½
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(šÙ£J$871aec35-f798-4c12-a851-03d266a8db28
+e
+java:S1659")Declare "resetButton" on a separate line.(¯ØúJ$fe2401ef-38b0-4fbf-a2d8-a4fe45e9c07f
+‹
+java:S1659"JDeclare "cgTipoMaquina" and all following declarations on a separate line.(¸…ó­ıÿÿÿÿJ$30be9fcd-766a-497d-a651-8b0a583a0333
+
+java:S1659"LDeclare "chipTipoMaquina" and all following declarations on a separate line.(Ù¢‹ØşÿÿÿÿJ$c1f3201b-df68-4423-8896-5c8b4a58d016
+˜
+java:S1450"\Remove the "aplicarButton" field and declare it as a local variable in the relevant methods.(¯ØúJ$e4e7b148-7f0d-483c-a575-0ee66073866d
+–
+java:S1450"ZRemove the "resetButton" field and declare it as a local variable in the relevant methods.(¯ØúJ$0c6d5028-b766-405e-aede-3c23cbe009c0
+
+java:S3776!"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(˜ıÉJ$e30bf752-b5b1-4e6a-9920-6fb51b76ead4
+~
+java:S18743"BRemove this use of "setOnCheckedChangeListener"; it is deprecated.(Ì¯°ğJ$30034a93-5a1a-4767-8313-293f2ae3104f
+~
+java:S1874<"BRemove this use of "setOnCheckedChangeListener"; it is deprecated.(‡Ğ†¡J$459b9471-af62-47c5-9801-823e108a0036
+ƒ
+java:S1874E"BRemove this use of "setOnCheckedChangeListener"; it is deprecated.(š³‚ÏÿÿÿÿÿJ$70245a8b-0961-4bef-9982-df4889e62e64
+ƒ
+java:S1874O"BRemove this use of "setOnCheckedChangeListener"; it is deprecated.(¿¯¯ïüÿÿÿÿJ$90538a61-5bb5-4262-aa49-b38212cbb549

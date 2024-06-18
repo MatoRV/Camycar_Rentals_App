@@ -1,12 +1,9 @@
 package com.example.camycarrentals.Controller.respuestas.login;
 
+import java.util.LinkedHashMap;
 import com.example.camycarrentals.Model.Usuario;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 public class RespuestaRegistro {
 
@@ -14,15 +11,14 @@ public class RespuestaRegistro {
 
     private LinkedHashMap<String, Object> jsonMap;
 
-    private LinkedList<Usuario> mList;
+    private Usuario usuario;
 
     public RespuestaRegistro(String entrada) {
         dato = entrada;
         jsonMap = new LinkedHashMap<>();
-        mList = new LinkedList<>();
     }
 
-    public LinkedList<Usuario> getRegistro() {
+    public Usuario getRegistro() {
         Usuario usuario;
         try {
             JSONObject jsonObject = new JSONObject(this.dato);
@@ -36,7 +32,7 @@ public class RespuestaRegistro {
         } catch (JSONException e) {
             usuario = null;
         }
-        mList.add(usuario);
-        return mList;
+
+        return usuario;
     }
 }

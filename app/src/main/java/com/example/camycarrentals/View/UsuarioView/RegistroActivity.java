@@ -4,16 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.camycarrentals.Controller.LoginController;
 import com.example.camycarrentals.Controller.RegistroController;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.R;
-import com.example.camycarrentals.View.MainActivity;
+import com.example.camycarrentals.Util.callbacks.RegistroCallback;
 import com.example.camycarrentals.databinding.ActivityRegistroBinding;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,15 +37,23 @@ public class RegistroActivity extends AppCompatActivity {
 
             if (validarDatos(nombre, primerApellido, segundoApellido, correo, dni, password, rePassword)) {
                 String registroBody = construirJsonBody(nombre, primerApellido, segundoApellido, correo, dni, password);
-                RegistroController.getSingleton().requestRegistroFromHttp(registroBody);
-            }
-
-            if (RegistroController.getSingleton().getDatosRegistro() != null) {
-                Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
-                Toast.makeText(RegistroActivity.this, "Se ha registrado con éxito", Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-                overridePendingTransition(R.anim.static_animation, R.anim.zoom_out);
-                finish();
+                RegistroController.getSingleton().requestRegistroFromHttp(registroBody, new RegistroCallback() {
+                    @Override
+                    public void onRegistroSuccess(Usuario usuario) {
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(RegistroActivity.this, LoginActivity.class);
+                            Toast.makeText(RegistroActivity.this, "Se ha registrado con éxito", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.static_animation, R.anim.zoom_out);
+                            finish();
+                        });
+                    }
+                    @Override
+                    public void onRegistroFailure(String mensaje) {
+                        runOnUiThread(
+                                () -> Toast.makeText(RegistroActivity.this, "No se ha podido realizar el registro " + mensaje, Toast.LENGTH_SHORT).show());
+                    }
+                });
             }
         });
 

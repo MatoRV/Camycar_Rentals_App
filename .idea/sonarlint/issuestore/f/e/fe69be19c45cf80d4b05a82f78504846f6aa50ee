@@ -1,0 +1,16 @@
+
+d
+java:S1604'"(Make this anonymous inner class a lambda(é¨†ÔJ$e6239eff-d2e9-442b-8823-50e433681ab7
+d
+java:S16042"(Make this anonymous inner class a lambda(¨¦ı½J$087720b9-bef5-48c7-a70d-cb45bf7d024b
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(³¸„’ûÿÿÿÿJ$71692d5e-6375-46bb-a0e5-531b89658323
+™
+java:S1104"XMake NEXT_SCREEN2 a static final constant or non-public and provide accessors if needed.(àÎ¼øÿÿÿÿJ$d5788780-a655-4be7-8f96-8aeef3e68530
+s
+java:S1444"2Make this "public static NEXT_SCREEN2" field final(àÎ¼øÿÿÿÿJ$79632388-e1e9-415e-a7ae-e0f3bcbddaf0
+˜
+java:S3008"WRename this field "NEXT_SCREEN2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÎ¼øÿÿÿÿJ$d4c5b415-09af-45c1-a4b2-3566e3b830ce
+’
+java:S1450"VRemove the "binding" field and declare it as a local variable in the relevant methods.(é¹ßJ$f6eb9c48-7103-4056-a84a-6edad0c52814
+x
+java:S1874"<Remove this use of "getSerializableExtra"; it is deprecated.(¸Öß·J$d38bc65a-9df1-4c37-97cc-7b6f6c4057b9

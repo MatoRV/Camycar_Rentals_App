@@ -1,0 +1,15 @@
+
+k
+java:S1604?"(Make this anonymous inner class a lambda(ÿÞçÀ8¿ °Ð‚2J$969a5b54-3340-41d9-8c6c-45d0ba7c8aea
+p
+java:S1604_"(Make this anonymous inner class a lambda(Ù¨üÌúÿÿÿÿ8À °Ð‚2J$5406f5a0-c928-4ef6-8a02-2c45a3a415fb
+k
+java:S1604f"(Make this anonymous inner class a lambda(é¨†Ô8À °Ð‚2J$b493aebd-ad31-4171-99d3-23ae54ef206f
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(³¸„’ûÿÿÿÿ8À °Ð‚2J$1561c8f9-5347-4ad1-8922-a57c89d04cf7
+Ž	java:S112†"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ä °Ð‚2J$36c7bedb-79c5-4c45-9933-54ff1f59041a
+™
+java:S1450"VRemove the "binding" field and declare it as a local variable in the relevant methods.(Í¶žÑ8Í °Ð‚2J$ac8f873b-bdf0-43dd-83cb-b81ca2415f46
+
+java:S1874*"<Remove this use of "getSerializableExtra"; it is deprecated.(¸Öß·8× °Ð‚2J$1eb7d122-b03e-4799-837d-60d6bbeadb3f
+„
+java:S1874."<Remove this use of "getSerializableExtra"; it is deprecated.(ôµÔüÿÿÿÿ8× °Ð‚2J$83196ce4-05b3-40b5-a841-5fcb59dda7b3

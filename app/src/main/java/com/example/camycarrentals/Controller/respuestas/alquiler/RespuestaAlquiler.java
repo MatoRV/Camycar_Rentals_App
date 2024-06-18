@@ -1,30 +1,25 @@
 package com.example.camycarrentals.Controller.respuestas.alquiler;
 
+import java.util.LinkedList;
+import java.util.List;
 import com.example.camycarrentals.Model.AlquilerResponse;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.Model.TipoMaquina;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class RespuestaAlquiler {
 
     protected String datos;
 
-    private LinkedList<AlquilerResponse> mList;
-
     public RespuestaAlquiler(String entrada) {
         datos = entrada;
-        mList = new LinkedList<>();
     }
 
-    public LinkedList<AlquilerResponse> postAlquiler() {
+    public AlquilerResponse postAlquiler() {
 
-        AlquilerResponse alquilerResponse;
+        AlquilerResponse alquilerResponse = new AlquilerResponse();
 
         try {
             ObjectMapper om = new ObjectMapper();
@@ -63,7 +58,6 @@ public class RespuestaAlquiler {
             maquina.setTipoMaquina(tipoMaquina.getNombre());
             maquina.setDias(dias);
 
-            alquilerResponse = new AlquilerResponse();
             alquilerResponse.setIdReserva(idReserva);
             alquilerResponse.setMaquina(maquina);
             alquilerResponse.setNombreUsuario(nombreUsuario);
@@ -73,8 +67,6 @@ public class RespuestaAlquiler {
             throw new RuntimeException(e);
         }
 
-        mList.add(alquilerResponse);
-
-        return mList;
+        return alquilerResponse;
     }
 }

@@ -1,0 +1,7 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¨øÅÙÿÿÿÿÿ8°–±Ï‚2J$9d4d6267-0dee-43fc-9fc6-0bfae2bccd9c
+Ü
+java:S6548
+"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(íªßÁ8³–±Ï‚2J$d0baba50-0ac8-4aa4-9bba-22265cea9385
+u
+java:S1068"2Remove this unused "activeActivity" private field.(³—Íæ8º–±Ï‚2J$a3c2d047-cb39-43a5-9833-fedb2d94e5c7

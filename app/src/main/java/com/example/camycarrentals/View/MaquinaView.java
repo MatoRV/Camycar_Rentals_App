@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.camycarrentals.Controller.LoginController;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.databinding.MaquinaBinding;
@@ -42,7 +41,7 @@ public class MaquinaView extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent intent = new Intent(MaquinaView.this, AlquilerView.class);
                     intent.putExtra(NEXT_SCREEN, maquina);
-                    intent.putExtra(NEXT_SCREEN2, LoginController.getSingleton().getDatosLogin().get(0));
+                    intent.putExtra(NEXT_SCREEN2, LoginController.getSingleton().getDatosLogin());
                     startActivity(intent);
                 }
             });

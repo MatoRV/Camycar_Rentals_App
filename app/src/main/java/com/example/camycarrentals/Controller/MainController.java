@@ -53,9 +53,6 @@ public class MainController {
         maquinaCardViewModel.setData(maquinasRequested);
     }
 
-    public void setErrorFromHttp(String error) {
-
-    }
 
     public static void setActivity(MainActivity myAct) {
         activeActivity = myAct;

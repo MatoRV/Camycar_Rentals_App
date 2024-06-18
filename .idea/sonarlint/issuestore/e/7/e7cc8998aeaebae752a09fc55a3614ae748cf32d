@@ -1,0 +1,17 @@
+
+d
+java:S1604%"(Make this anonymous inner class a lambda(þýÅ˜J$b1dd1bdb-6c4a-4b8f-be1c-285f907a0a49
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°Ô‹›J$7b5b6d01-1b70-4a01-a593-b0413a3e2fc6
+g
+java:S1659"&Declare "tvNombre" on a separate line.(•á©ÿþÿÿÿÿJ$8f7b94c6-af26-4838-829f-78492ff08dd7
+Ÿ
+java:S1450"cRemove the "mBottomNavigationBar" field and declare it as a local variable in the relevant methods.(ßžÇµJ$9fc9aa29-2449-4e8a-b51e-a862e214b2aa
+”
+java:S1450"XRemove the "mButtonIP" field and declare it as a local variable in the relevant methods.(…ÎÜžJ$875c6cd2-2d9b-440b-bbdc-30611d348688
+˜
+java:S1450"WRemove the "tvCorreo" field and declare it as a local variable in the relevant methods.(•á©ÿþÿÿÿÿJ$23e6ddce-1bef-4e4c-92cd-9bb83efcd559
+˜
+java:S1450"WRemove the "tvNombre" field and declare it as a local variable in the relevant methods.(•á©ÿþÿÿÿÿJ$efad8bc6-f10a-42b7-af2c-87975b5d7850
+Œ
+java:S13010"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿJ$541b009c-3c05-47d9-8aeb-3e66b2ce93fb
+b	java:S1310""Add a default case to this switch.(øå´¡ÿÿÿÿÿJ$73694332-0160-4757-8baf-236e68e56671

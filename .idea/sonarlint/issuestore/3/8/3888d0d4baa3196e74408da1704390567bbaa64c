@@ -1,0 +1,10 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¨øÅÙÿÿÿÿÿJ$36e4fcc3-0d5f-415a-bc33-c26b01f5e837
+ž
+java:S1450"]Remove the "activeActivity" field and declare it as a local variable in the relevant methods.(€‰ë•ÿÿÿÿÿJ$5615ae6e-f98c-4d24-99c2-16ba0dd3114f
+Õ
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(Ø•Õ½J$fa847370-d207-47f8-af2a-fb382a5ff80e
+n
+java:S1172,"-Remove this unused method parameter "filtro".(«Ú˜ÄýÿÿÿÿJ$75041092-8a40-4c4d-856e-12d026eab104
+s
+java:S1068"2Remove this unused "activeActivity" private field.(€‰ë•ÿÿÿÿÿJ$21942d5e-46c6-45a4-b787-96fef3d3441d

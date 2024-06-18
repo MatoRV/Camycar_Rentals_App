@@ -4,9 +4,8 @@ import com.example.camycarrentals.Controller.peticion.login.PeticionRegistro;
 import com.example.camycarrentals.Controller.respuestas.login.RespuestaRegistro;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.Util.Conexion;
+import com.example.camycarrentals.Util.callbacks.RegistroCallback;
 import com.example.camycarrentals.View.UsuarioView.RegistroActivity;
-
-import java.util.LinkedList;
 
 public class RegistroController {
 
@@ -14,7 +13,7 @@ public class RegistroController {
 
     private static RegistroActivity activeActivity;
 
-    private LinkedList<Usuario> datosRegistro;
+    private Usuario datosRegistro;
 
     private RegistroController() {
 
@@ -27,18 +26,19 @@ public class RegistroController {
         return registroController;
     }
 
-    public LinkedList<Usuario> getDatosRegistro() {
+    public Usuario getDatosRegistro() {
         return this.datosRegistro;
     }
 
-    public void requestRegistroFromHttp(String registroBody) {
+    public void requestRegistroFromHttp(String registroBody, RegistroCallback registroCallback) {
         PeticionRegistro p = new PeticionRegistro();
-        String enlace = Conexion.URL + "usuarios";;
-        p.requestRegistro(enlace, registroBody);
+        String enlace = Conexion.URL + "usuarios";
+        p.requestRegistro(enlace, registroBody, registroCallback);
     }
 
-    public void setRegistroFromHttp(String json) {
+    public void setRegistroFromHttp(String json, RegistroCallback registroCallback) {
         RespuestaRegistro r = new RespuestaRegistro(json);
         datosRegistro = r.getRegistro();
+        registroCallback.onRegistroSuccess(datosRegistro);
     }
 }

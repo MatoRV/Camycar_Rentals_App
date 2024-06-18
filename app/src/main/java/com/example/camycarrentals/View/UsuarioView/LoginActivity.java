@@ -10,17 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.camycarrentals.Controller.LoginController;
 import com.example.camycarrentals.Model.Usuario;
 import com.example.camycarrentals.R;
+import com.example.camycarrentals.Util.callbacks.LoginCallback;
 import com.example.camycarrentals.View.MainActivity;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.LinkedList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,8 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText textInputLayoutCorreo, textInputLayoutContrasena;
 
     private TextView tvRegister;
-
-    private LinkedList<Usuario> mList = new LinkedList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,20 +52,23 @@ public class LoginActivity extends AppCompatActivity {
                     contrasena = textInputLayoutContrasena.getText().toString();
                 }
 
-                LoginController.getSingleton().requestLoginFromHttp(correo, contrasena);
-
-                mList = LoginController.getSingleton().getDatosLogin();
-
-                if (mList != null || (correo.equals("admin") && contrasena.equals("1234"))) {
-                    Intent intent = new Intent(view.getContext(), MainActivity.class);
-                    Toast.makeText(view.getContext(), "Se ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.static_animation, R.anim.zoom_out);
-                    finish();
-                } else {
-                    textInputLayoutContrasena.setError("No coincide contraseña");
-                    Toast.makeText(view.getContext(), "Datos de login incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                LoginController.getSingleton().requestLoginFromHttp(correo, contrasena, new LoginCallback() {
+                    @Override
+                    public void onLoginSuccess(Usuario usuario) {
+                        runOnUiThread(() -> {
+                            Intent intent = new Intent(view.getContext(), MainActivity.class);
+                            Toast.makeText(view.getContext(), "Se ha iniciado sesion correctamente", Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.static_animation, R.anim.zoom_out);
+                            finish();
+                        });
+                    }
+                    @Override
+                    public void onLoginFailure(String mensaje) {
+                        textInputLayoutContrasena.setError("No coincide contraseña");
+                        Toast.makeText(view.getContext(), "Datos de login incorrectos " + mensaje, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

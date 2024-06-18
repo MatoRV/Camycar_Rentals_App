@@ -1,19 +1,18 @@
 package com.example.camycarrentals.Controller;
 
-import java.util.LinkedList;
 import java.util.List;
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
 import com.example.camycarrentals.Controller.peticion.alquiler.PeticionAlquiler;
 import com.example.camycarrentals.Controller.peticion.localidad.PeticionLocalidades;
 import com.example.camycarrentals.Controller.respuestas.alquiler.RespuestaAlquiler;
 import com.example.camycarrentals.Controller.respuestas.alquiler.RespuestaLocalidades;
 import com.example.camycarrentals.Model.AlquilerResponse;
 import com.example.camycarrentals.Util.Conexion;
+import com.example.camycarrentals.Util.callbacks.AlquilerCallback;
 import com.example.camycarrentals.View.AlquilerView;
 
 public class AlquilerController {
@@ -28,7 +27,7 @@ public class AlquilerController {
 
     private Context contextAlquiler;
 
-    private LinkedList<AlquilerResponse> alquilerResponseLinkedList;
+    private AlquilerResponse alquilerResponse;
 
     private AlquilerController() {
 
@@ -65,12 +64,12 @@ public class AlquilerController {
         this.localidades = localidades;
     }
 
-    public LinkedList<AlquilerResponse> getAlquilerResponseLinkedList() {
-        return alquilerResponseLinkedList;
+    public AlquilerResponse getAlquilerResponse() {
+        return alquilerResponse;
     }
 
-    public void setAlquilerResponseLinkedList(LinkedList<AlquilerResponse> alquilerResponseLinkedList) {
-        this.alquilerResponseLinkedList = alquilerResponseLinkedList;
+    public void setAlquilerResponse(AlquilerResponse alquilerResponse) {
+        this.alquilerResponse = alquilerResponse;
     }
 
     public void requestLocalidadesFromHttp() {
@@ -107,14 +106,15 @@ public class AlquilerController {
         return item[0];
     }
 
-    public void requestAlquilerFromHttp(String registroBody) {
+    public void requestAlquilerFromHttp(String registroBody, AlquilerCallback alquilerCallback) {
         PeticionAlquiler p = new PeticionAlquiler();
-        String enlace = Conexion.URL + "reservas";;
-        p.requestAlquiler(enlace, registroBody);
+        String enlace = Conexion.URL + "reservas";
+        p.requestAlquiler(enlace, registroBody, alquilerCallback);
     }
 
-    public void setAlquilerFromHttp(String json) {
+    public void setAlquilerFromHttp(String json, AlquilerCallback alquilerCallback) {
         RespuestaAlquiler r = new RespuestaAlquiler(json);
-        alquilerResponseLinkedList = r.postAlquiler();
+        alquilerResponse = r.postAlquiler();
+        alquilerCallback.onAlquilerSuccess(alquilerResponse);
     }
 }

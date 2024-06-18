@@ -1,0 +1,20 @@
+
+c
+java:S1604#"(Make this anonymous inner class a lambda(°žæJ$1fccf9d8-4772-4cfa-a995-401a04464c4e
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°Ô‹›J$84cf6c09-afaa-4b6a-8af9-41a6d630ea56
+†
+java:S1659"EDeclare "tvCorreo" and all following declarations on a separate line.(æ›—ŠøÿÿÿÿJ$a066db1a-bc76-4c0b-b493-590b35eb1817
+—
+java:S1450"VRemove the "btnBack" field and declare it as a local variable in the relevant methods.(Ý¡—¨ýÿÿÿÿJ$6c1e5ada-09a9-4589-9f81-4d26d6a17e5d
+›
+java:S1450"ZRemove the "tvApellidos" field and declare it as a local variable in the relevant methods.(æ›—ŠøÿÿÿÿJ$5fb4857c-698b-4d50-b627-afd30db6a399
+œ
+java:S1450"[Remove the "tvContrasena" field and declare it as a local variable in the relevant methods.(æ›—ŠøÿÿÿÿJ$63085e50-3dc5-4712-84ed-cf9dad65178d
+˜
+java:S1450"WRemove the "tvCorreo" field and declare it as a local variable in the relevant methods.(æ›—ŠøÿÿÿÿJ$2f6e0cd6-a19f-49eb-95c4-25ea5b28b0eb
+•
+java:S1450"TRemove the "tvDni" field and declare it as a local variable in the relevant methods.(æ›—ŠøÿÿÿÿJ$2650d910-07ff-4e00-9dd7-559726e1a81b
+˜
+java:S1450"WRemove the "tvNombre" field and declare it as a local variable in the relevant methods.(æ›—ŠøÿÿÿÿJ$f8dd19da-b7e3-4a49-ae13-1cbfd73e6c92
+q
+java:S1068"0Remove this unused "tvContrasena" private field.(æ›—ŠøÿÿÿÿJ$5f29989c-3ba5-47eb-b9d5-34213456fbeb

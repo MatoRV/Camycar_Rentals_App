@@ -1,0 +1,10 @@
+
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ºª¶8ºì¥Ï‚2J$7f588583-0af8-4797-a8c0-291a60254e11
+†
+java:S1854">Remove this useless assignment to local variable "jsonObject".(ã‚š§ÿÿÿÿÿ8¿ì¥Ï‚2J$7401961b-d570-459b-9f4d-2b9904558f47
+~
+java:S1117";Rename "usuario" which hides the field declared at line 14.(Û¡¥å8¿ì¥Ï‚2J$71678701-551b-4115-856b-299be29787f5
+w
+java:S1481"/Remove this unused "jsonObject" local variable.(ã‚š§ÿÿÿÿÿ8¿ì¥Ï‚2J$2e3f3a32-11f2-43d5-ac37-54f8fc2d0398
+s
+java:S1068"+Remove this unused "usuario" private field.(ÂÌ±Ñûÿÿÿÿ8Àì¥Ï‚2J$39555ca8-d39f-494e-9c0a-f0af2ce2602a

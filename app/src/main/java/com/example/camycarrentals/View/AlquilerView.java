@@ -2,7 +2,6 @@ package com.example.camycarrentals.View;
 
 import static com.example.camycarrentals.View.MainActivity.NEXT_SCREEN;
 import static com.example.camycarrentals.View.MaquinaView.NEXT_SCREEN2;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -14,12 +13,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import com.example.camycarrentals.Controller.AlquilerController;
-import com.example.camycarrentals.Controller.LoginController;
+import com.example.camycarrentals.Model.AlquilerResponse;
 import com.example.camycarrentals.Model.Maquina;
 import com.example.camycarrentals.Model.Usuario;
+import com.example.camycarrentals.Util.callbacks.AlquilerCallback;
 import com.example.camycarrentals.databinding.AlquilerViewBinding;
 import com.google.android.material.datepicker.MaterialDatePicker;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -89,7 +88,7 @@ public class AlquilerView extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                // No hace nada
             }
         });
 
@@ -108,12 +107,16 @@ public class AlquilerView extends AppCompatActivity {
                 } else {
                     Integer idUsuario = usuario.getIdUsuario();
                     String alquilerBody = contruirJsonBody(maquina.getIdMaquina(), idUsuario, localidad[0], fechas[0], fechas[1]);
-                    AlquilerController.getSingleton().requestAlquilerFromHttp(alquilerBody);
-                    if (AlquilerController.getSingleton().getAlquilerResponseLinkedList().get(0) == null) {
-                        if (AlquilerController.getSingleton().getAlquilerResponseLinkedList().get(0) != null) {
-                            Toast.makeText(AlquilerView.this, "Se ha realizado la reserva con éxito", Toast.LENGTH_SHORT).show();
+                    AlquilerController.getSingleton().requestAlquilerFromHttp(alquilerBody, new AlquilerCallback() {
+                        @Override
+                        public void onAlquilerSuccess(AlquilerResponse alquilerResponse) {
+                            runOnUiThread(() -> Toast.makeText(AlquilerView.this, "Se ha realizado la reserva con éxito", Toast.LENGTH_SHORT).show());
                         }
-                    }
+                        @Override
+                        public void onAlquilerFailure(String mensaje) {
+                            runOnUiThread(() -> Toast.makeText(AlquilerView.this, mensaje, Toast.LENGTH_SHORT).show());
+                        }
+                    });
                 }
             }
         });

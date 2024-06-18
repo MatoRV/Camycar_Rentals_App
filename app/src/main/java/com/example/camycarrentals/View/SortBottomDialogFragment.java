@@ -107,7 +107,6 @@ public class SortBottomDialogFragment extends BottomSheetDialogFragment {
                 }
 
                 mViewModel.loadMaquina(String.valueOf(filtro));
-                Toast.makeText(view.getContext(), "Filtro: " + filtro, Toast.LENGTH_LONG).show();
                 filtro.delete(7, filtro.length());
             }
         });

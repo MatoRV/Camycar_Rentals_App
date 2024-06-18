@@ -1,0 +1,21 @@
+
+k
+java:S1604E"(Make this anonymous inner class a lambda(ÇĞ»÷8ñı¸Ğ‚2J$5a969bbf-ac59-4318-b6ae-b38c34b6d43b
+k
+java:S1604L"(Make this anonymous inner class a lambda(Àƒ£8òı¸Ğ‚2J$c57c7bd2-f5a7-421d-a3f3-005cce9083fa
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(³¸„’ûÿÿÿÿJ$764b9888-bf51-43f4-b6a6-493cba98859a
+™
+java:S1450&"VRemove the "binding" field and declare it as a local variable in the relevant methods.(¶ÃÊ8„ş¸Ğ‚2J$fe84e492-27d2-4a67-9fff-b0357132a4d7
+Ÿ
+java:S1450"WRemove the "mAdapter" field and declare it as a local variable in the relevant methods.(ˆ¦Ø±ÿÿÿÿÿ8„ş¸Ğ‚2J$0b441cdb-a00a-4f6d-8485-6c7c3d9d4671
+§
+java:S1450""dRemove the "mBottomNavigationView" field and declare it as a local variable in the relevant methods.(ğ‘Ë÷8„ş¸Ğ‚2J$7d12b824-f1e2-4d64-a4ba-d8a828f16db4
+œ
+java:S1450"YRemove the "mViewModel" field and declare it as a local variable in the relevant methods.(Ûéİ8„ş¸Ğ‚2J$ce859b34-825f-487d-a125-f508f9558ab0
+¡
+java:S1450"YRemove the "sortButton" field and declare it as a local variable in the relevant methods.(ùõ†›ùÿÿÿÿ8„ş¸Ğ‚2J$ff8d9530-2041-498f-b181-27415400c6e8
+“
+java:S1301X"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿ8­ş¸Ğ‚2J$80f78f2c-a21a-4db4-b249-4208f7449111
+i	java:S131X""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8®ş¸Ğ‚2J$779a12e3-fdea-49b9-b652-a8b9adfa8736
+|
+java:S1068$"4Remove this unused "myActiveActivity" private field.(ÕôÛàÿÿÿÿÿ8°ş¸Ğ‚2J$1ca3e80e-947e-4ccd-9da9-cf35c041f8ff
